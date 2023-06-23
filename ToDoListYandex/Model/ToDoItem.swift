@@ -19,14 +19,16 @@ struct TodoItem: Equatable {
     let done: Bool
     let creationDate: Date
     let changeDate: Date?
+    let hexColor: String?
     
     init(id: String = UUID().uuidString,
          text: String,
          taskImportance: TaskImportance,
-         deadlineDate: Date?,
+         deadlineDate: Date? = nil,
          done: Bool = false,
          creationDate: Date = Date(),
-         changeDate: Date?) {
+         changeDate: Date? = nil,
+         textColor: String? = nil) {
         self.id = id
         self.text = text
         self.taskImportance = taskImportance
@@ -34,6 +36,7 @@ struct TodoItem: Equatable {
         self.done = done
         self.creationDate = creationDate
         self.changeDate = changeDate
+        self.hexColor = textColor
     }
     
 }

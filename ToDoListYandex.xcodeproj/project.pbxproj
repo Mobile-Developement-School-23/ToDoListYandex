@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5DCCF1052A460F9000A15BE8 /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCCF1042A460F9000A15BE8 /* ColorPickerView.swift */; };
 		850FCB112A385A890012EE52 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FCB102A385A890012EE52 /* AppDelegate.swift */; };
 		850FCB132A385A890012EE52 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FCB122A385A890012EE52 /* SceneDelegate.swift */; };
-		850FCB152A385A890012EE52 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FCB142A385A890012EE52 /* ViewController.swift */; };
-		850FCB182A385A890012EE52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 850FCB162A385A890012EE52 /* Main.storyboard */; };
 		850FCB1A2A385A8A0012EE52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 850FCB192A385A8A0012EE52 /* Assets.xcassets */; };
 		850FCB1D2A385A8A0012EE52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 850FCB1B2A385A8A0012EE52 /* LaunchScreen.storyboard */; };
 		850FCB252A38AE2C0012EE52 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FCB242A38AE2C0012EE52 /* ToDoItem.swift */; };
@@ -23,6 +22,18 @@
 		850FCB422A3CB8FB0012EE52 /* TodoItem+CSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FCB412A3CB8FB0012EE52 /* TodoItem+CSV.swift */; };
 		850FCB442A3CBCBA0012EE52 /* TodoItemCSVTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FCB432A3CBCBA0012EE52 /* TodoItemCSVTests.swift */; };
 		850FCB462A3CD2370012EE52 /* FileCache+CSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FCB452A3CD2370012EE52 /* FileCache+CSV.swift */; };
+		854B5E8D2A3FA793002AC531 /* ToDoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854B5E8C2A3FA793002AC531 /* ToDoListViewController.swift */; };
+		856418F62A43554E009F601C /* ToDoListViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856418F52A43554E009F601C /* ToDoListViewPresenter.swift */; };
+		856418F82A459D65009F601C /* ToDoListViewController+UITextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856418F72A459D65009F601C /* ToDoListViewController+UITextViewDelegate.swift */; };
+		856418FA2A459E2E009F601C /* ToDoListViewController+UICalendarSelectionSingleDateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856418F92A459E2E009F601C /* ToDoListViewController+UICalendarSelectionSingleDateDelegate.swift */; };
+		856418FD2A45A2FD009F601C /* ToDoListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856418FC2A45A2FD009F601C /* ToDoListProtocols.swift */; };
+		856419002A45AF05009F601C /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856418FF2A45AF05009F601C /* UIColor+Extension.swift */; };
+		856419032A45CF02009F601C /* SF-Pro-Text-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 856419022A45CF02009F601C /* SF-Pro-Text-Regular.otf */; };
+		856419052A45D093009F601C /* SF-Pro-Text-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 856419042A45D093009F601C /* SF-Pro-Text-Bold.otf */; };
+		856419072A45D28F009F601C /* SF-Pro-Text-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 856419062A45D28F009F601C /* SF-Pro-Text-Medium.otf */; };
+		856419092A45D2F9009F601C /* SF-Pro-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 856419082A45D2F9009F601C /* SF-Pro-Text-Semibold.otf */; };
+		8564190B2A45D3EA009F601C /* SF-Pro-Text-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8564190A2A45D3EA009F601C /* SF-Pro-Text-Thin.otf */; };
+		8564190D2A45D4EA009F601C /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8564190C2A45D4EA009F601C /* UIFont+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,11 +47,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5DCCF1042A460F9000A15BE8 /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
 		850FCB0D2A385A890012EE52 /* ToDoListYandex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoListYandex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		850FCB102A385A890012EE52 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		850FCB122A385A890012EE52 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		850FCB142A385A890012EE52 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		850FCB172A385A890012EE52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		850FCB192A385A8A0012EE52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		850FCB1C2A385A8A0012EE52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		850FCB1E2A385A8A0012EE52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -55,6 +65,18 @@
 		850FCB412A3CB8FB0012EE52 /* TodoItem+CSV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TodoItem+CSV.swift"; sourceTree = "<group>"; };
 		850FCB432A3CBCBA0012EE52 /* TodoItemCSVTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemCSVTests.swift; sourceTree = "<group>"; };
 		850FCB452A3CD2370012EE52 /* FileCache+CSV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileCache+CSV.swift"; sourceTree = "<group>"; };
+		854B5E8C2A3FA793002AC531 /* ToDoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewController.swift; sourceTree = "<group>"; };
+		856418F52A43554E009F601C /* ToDoListViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewPresenter.swift; sourceTree = "<group>"; };
+		856418F72A459D65009F601C /* ToDoListViewController+UITextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDoListViewController+UITextViewDelegate.swift"; sourceTree = "<group>"; };
+		856418F92A459E2E009F601C /* ToDoListViewController+UICalendarSelectionSingleDateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDoListViewController+UICalendarSelectionSingleDateDelegate.swift"; sourceTree = "<group>"; };
+		856418FC2A45A2FD009F601C /* ToDoListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListProtocols.swift; sourceTree = "<group>"; };
+		856418FF2A45AF05009F601C /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		856419022A45CF02009F601C /* SF-Pro-Text-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Regular.otf"; sourceTree = "<group>"; };
+		856419042A45D093009F601C /* SF-Pro-Text-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Bold.otf"; sourceTree = "<group>"; };
+		856419062A45D28F009F601C /* SF-Pro-Text-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Medium.otf"; sourceTree = "<group>"; };
+		856419082A45D2F9009F601C /* SF-Pro-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Semibold.otf"; sourceTree = "<group>"; };
+		8564190A2A45D3EA009F601C /* SF-Pro-Text-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Thin.otf"; sourceTree = "<group>"; };
+		8564190C2A45D4EA009F601C /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +97,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5DCCF1032A45EC4400A15BE8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				850FCB3F2A3CA7E00012EE52 /* Constants.swift */,
+				850FCB242A38AE2C0012EE52 /* ToDoItem.swift */,
+				850FCB262A38F6840012EE52 /* ToDoItem+JSON.swift */,
+				850FCB412A3CB8FB0012EE52 /* TodoItem+CSV.swift */,
+				850FCB3B2A3BC2180012EE52 /* FileCache.swift */,
+				850FCB452A3CD2370012EE52 /* FileCache+CSV.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		850FCB042A385A890012EE52 = {
 			isa = PBXGroup;
 			children = (
@@ -96,19 +131,17 @@
 		850FCB0F2A385A890012EE52 /* ToDoListYandex */ = {
 			isa = PBXGroup;
 			children = (
-				850FCB3F2A3CA7E00012EE52 /* Constants.swift */,
-				850FCB242A38AE2C0012EE52 /* ToDoItem.swift */,
-				850FCB262A38F6840012EE52 /* ToDoItem+JSON.swift */,
-				850FCB412A3CB8FB0012EE52 /* TodoItem+CSV.swift */,
-				850FCB3B2A3BC2180012EE52 /* FileCache.swift */,
-				850FCB452A3CD2370012EE52 /* FileCache+CSV.swift */,
+				5DCCF1032A45EC4400A15BE8 /* Model */,
+				856418FE2A45AEE1009F601C /* UiKitExtensions */,
+				856418FB2A45A2E9009F601C /* Protocols */,
+				856418F42A435539009F601C /* Presenter */,
+				854B5E8B2A3FA772002AC531 /* View */,
 				850FCB102A385A890012EE52 /* AppDelegate.swift */,
 				850FCB122A385A890012EE52 /* SceneDelegate.swift */,
-				850FCB142A385A890012EE52 /* ViewController.swift */,
-				850FCB162A385A890012EE52 /* Main.storyboard */,
 				850FCB192A385A8A0012EE52 /* Assets.xcassets */,
 				850FCB1B2A385A8A0012EE52 /* LaunchScreen.storyboard */,
 				850FCB1E2A385A8A0012EE52 /* Info.plist */,
+				856419012A45CEEE009F601C /* fonts */,
 			);
 			path = ToDoListYandex;
 			sourceTree = "<group>";
@@ -122,6 +155,54 @@
 				850FCB432A3CBCBA0012EE52 /* TodoItemCSVTests.swift */,
 			);
 			path = ToDoListYandexTests;
+			sourceTree = "<group>";
+		};
+		854B5E8B2A3FA772002AC531 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				854B5E8C2A3FA793002AC531 /* ToDoListViewController.swift */,
+				856418F72A459D65009F601C /* ToDoListViewController+UITextViewDelegate.swift */,
+				856418F92A459E2E009F601C /* ToDoListViewController+UICalendarSelectionSingleDateDelegate.swift */,
+				5DCCF1042A460F9000A15BE8 /* ColorPickerView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		856418F42A435539009F601C /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				856418F52A43554E009F601C /* ToDoListViewPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		856418FB2A45A2E9009F601C /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				856418FC2A45A2FD009F601C /* ToDoListProtocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		856418FE2A45AEE1009F601C /* UiKitExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				856418FF2A45AF05009F601C /* UIColor+Extension.swift */,
+				8564190C2A45D4EA009F601C /* UIFont+Extension.swift */,
+			);
+			path = UiKitExtensions;
+			sourceTree = "<group>";
+		};
+		856419012A45CEEE009F601C /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				856419042A45D093009F601C /* SF-Pro-Text-Bold.otf */,
+				856419022A45CF02009F601C /* SF-Pro-Text-Regular.otf */,
+				856419062A45D28F009F601C /* SF-Pro-Text-Medium.otf */,
+				856419082A45D2F9009F601C /* SF-Pro-Text-Semibold.otf */,
+				8564190A2A45D3EA009F601C /* SF-Pro-Text-Thin.otf */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,9 +286,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				856419092A45D2F9009F601C /* SF-Pro-Text-Semibold.otf in Resources */,
+				856419032A45CF02009F601C /* SF-Pro-Text-Regular.otf in Resources */,
 				850FCB1D2A385A8A0012EE52 /* LaunchScreen.storyboard in Resources */,
+				856419052A45D093009F601C /* SF-Pro-Text-Bold.otf in Resources */,
+				856419072A45D28F009F601C /* SF-Pro-Text-Medium.otf in Resources */,
+				8564190B2A45D3EA009F601C /* SF-Pro-Text-Thin.otf in Resources */,
 				850FCB1A2A385A8A0012EE52 /* Assets.xcassets in Resources */,
-				850FCB182A385A890012EE52 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,14 +310,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				850FCB152A385A890012EE52 /* ViewController.swift in Sources */,
+				856418F62A43554E009F601C /* ToDoListViewPresenter.swift in Sources */,
+				856418FA2A459E2E009F601C /* ToDoListViewController+UICalendarSelectionSingleDateDelegate.swift in Sources */,
 				850FCB422A3CB8FB0012EE52 /* TodoItem+CSV.swift in Sources */,
+				856418F82A459D65009F601C /* ToDoListViewController+UITextViewDelegate.swift in Sources */,
+				856418FD2A45A2FD009F601C /* ToDoListProtocols.swift in Sources */,
 				850FCB112A385A890012EE52 /* AppDelegate.swift in Sources */,
 				850FCB252A38AE2C0012EE52 /* ToDoItem.swift in Sources */,
 				850FCB132A385A890012EE52 /* SceneDelegate.swift in Sources */,
+				5DCCF1052A460F9000A15BE8 /* ColorPickerView.swift in Sources */,
+				856419002A45AF05009F601C /* UIColor+Extension.swift in Sources */,
 				850FCB402A3CA7E00012EE52 /* Constants.swift in Sources */,
 				850FCB3C2A3BC2180012EE52 /* FileCache.swift in Sources */,
 				850FCB272A38F6840012EE52 /* ToDoItem+JSON.swift in Sources */,
+				854B5E8D2A3FA793002AC531 /* ToDoListViewController.swift in Sources */,
+				8564190D2A45D4EA009F601C /* UIFont+Extension.swift in Sources */,
 				850FCB462A3CD2370012EE52 /* FileCache+CSV.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,14 +351,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		850FCB162A385A890012EE52 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				850FCB172A385A890012EE52 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		850FCB1B2A385A8A0012EE52 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -399,14 +483,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = U2MP7V247A;
+				DEVELOPMENT_TEAM = 8QQ2UAQU6U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ToDoListYandex/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -427,14 +512,15 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = U2MP7V247A;
+				DEVELOPMENT_TEAM = 8QQ2UAQU6U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ToDoListYandex/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -454,9 +540,9 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = U2MP7V247A;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = asharapenko.ToDoListYandexTests;
@@ -476,9 +562,9 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = U2MP7V247A;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = asharapenko.ToDoListYandexTests;

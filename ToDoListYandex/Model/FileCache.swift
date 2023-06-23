@@ -19,7 +19,12 @@ class FileCache {
         tasks.removeAll(where: { $0.id == id })
     }
     
-    func saveTasksToJSON(usingFileURL fileURL: URL) {
+    func saveTasksToJSON(usingFileName fileName: String) {
+        guard let documentDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            return
+        }
+        let fileURL = documentDirectoryURL.appendingPathComponent("\(fileName).json")
+        
         let tasksDictionariesArray = tasks.map { $0.json }
         
         do {
@@ -30,7 +35,12 @@ class FileCache {
         }
     }
     
-    func loadAllTasksFromJSON(usingFileURL fileURL: URL) {
+    func loadAllTasksFromJSON(usingFileName fileName: String) {
+        guard let documentDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            return
+        }
+        let fileURL = documentDirectoryURL.appendingPathComponent("\(fileName).json")
+        
         do {
             let jsonData = try Data(contentsOf: fileURL)
             guard let tasksDictionaryArray = try JSONSerialization.jsonObject(with: jsonData) as? [[String: Any]] else {

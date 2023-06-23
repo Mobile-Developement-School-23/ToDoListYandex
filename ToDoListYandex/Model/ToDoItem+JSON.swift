@@ -17,6 +17,7 @@ extension TodoItem {
         data[Constants.taskImportance] = taskImportance != .usual ? taskImportance.rawValue : nil
         data[Constants.deadlineDate] = deadlineDate?.timeIntervalSince1970 ?? nil
         data[Constants.changeDate] = changeDate?.timeIntervalSince1970 ?? nil
+        data[Constants.color] = hexColor
         return data
     }
     
@@ -33,6 +34,7 @@ extension TodoItem {
         
         let deadlineDate = getDateFromTimeInterval(data[Constants.deadlineDate] as? TimeInterval)
         let changeDate = getDateFromTimeInterval(data[Constants.changeDate] as? TimeInterval)
+        let textColor =  data[Constants.color] as? String
         
         return TodoItem(id: id,
                         text: text,
@@ -40,7 +42,8 @@ extension TodoItem {
                         deadlineDate: deadlineDate,
                         done: done,
                         creationDate: creationDate,
-                        changeDate: changeDate)
+                        changeDate: changeDate,
+                        textColor: textColor)
     }
     
     private static func getDateFromTimeInterval(_ timeInterval: TimeInterval?) -> Date? {
