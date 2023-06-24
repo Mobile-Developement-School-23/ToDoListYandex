@@ -25,15 +25,21 @@ extension TodoItem {
         dataCSV += "\(Int(creationDate.timeIntervalSince1970));"
         
         if let changeDateDouble = changeDate?.timeIntervalSince1970 {
-            dataCSV += "\(Int(changeDateDouble))"
-        } 
+            dataCSV += "\(Int(changeDateDouble));"
+        } else {
+            dataCSV += ";"
+        }
+        
+        if let color = hexColor {
+            dataCSV += "\(color)"
+        }
         
         return dataCSV
     }
     
     static func parse(csv: String) -> TodoItem? {
         let columns = csv.components(separatedBy: ";")
-        guard columns.count == 7 else { return nil }
+        guard columns.count == 8 else { return nil }
         
         guard (columns[0] != ""),
               (columns[1] != ""),
@@ -51,6 +57,7 @@ extension TodoItem {
         let done = Bool(columns[4])!
         let creationDate = Date(timeIntervalSince1970: Double(columns[5])!)
         let changeDate: Date? = columns[6] != "" ? Date(timeIntervalSince1970: Double(columns[6])!) : nil
+        let color = columns[7] != "" ? columns[7] : nil
         
         return TodoItem(id: id,
                         text: text,
@@ -58,6 +65,7 @@ extension TodoItem {
                         deadlineDate: deadlineDate,
                         done: done,
                         creationDate: creationDate,
-                        changeDate: changeDate)
+                        changeDate: changeDate,
+                        textColor: color)
     }
 }

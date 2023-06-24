@@ -15,4 +15,5 @@ struct Constants {
     static let done = "done"
     static let creationDate = "creationDate"
     static let changeDate = "changeDate"
+    static let color = "color"
 }
