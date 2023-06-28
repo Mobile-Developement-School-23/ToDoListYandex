@@ -14,6 +14,6 @@ extension ToDoListViewController: UICalendarSelectionSingleDateDelegate {
             fatalError("Invalid date components")
         }
         
-        _ = presenter.setDeadlineDate(date)
+        _ = presenter.dateChangedTo(date)
     }
 }

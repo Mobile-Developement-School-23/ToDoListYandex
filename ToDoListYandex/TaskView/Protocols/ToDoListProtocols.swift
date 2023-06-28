@@ -12,7 +12,9 @@ protocol ToDoListViewControllerProtocol: AnyObject {
     
     func updateDeleteButton(setActive: Bool)
     
-    func updateTaskText(_ text: String, textColor: UIColor?, isResignFirstResponder: Bool) 
+    func updateTaskText(_ text: NSAttributedString, isResignFirstResponder: Bool)
+    
+    func updateTextColor(_ color: UIColor)
     
     func updateImportanceControl(_ segment: Int)
     
@@ -39,21 +41,23 @@ protocol ToDoListViewControllerProtocol: AnyObject {
 
 protocol ToDoListPresenterProtocol {
     
-    func loadTaskInfo()
+    func fillTaskInfo(_ todoItem: TodoItem) -> Bool
     
-    func isInfoFilled() -> Bool
+    func textChangedTo(_ text: String)
     
-    func setTaskText(_ text: String) -> Bool
-    func setImportanceSegment(_ importanceSegment: Int) -> Bool
-    func doDueSwitchActivate(_ activated: Bool) -> Bool
-    func doDueDateLabelTouched(isCalendarHidden: Bool) -> Bool
-    func setDeadlineDateActive(_ doDue: Bool) -> Bool
-    func setDeadlineDate(_ deadline: Date?) -> Bool
-    func updateTextViewSettings(_ textView: UITextView)
+    func importanceSegmentChangedTo(_ importanceSegment: Int)
     
-    func saveTask()
-    func deleteElements()
+    func dateChangedTo(_ date: Date)
     
-    func colorPickerButtonTapped(isPickerDisplayed: Bool)
+    func doDueSwitchActivated(_ activated: Bool)
+    
+    func doDueDateLabelTouched(isCalendarHidden: Bool)
+    
+    func colorPickerButtonTapped()
+    
     func brightnessSliderChanged(value: Double)
+    
+    func saveTaskButtonTapped()
+    
+    func deleteElement()
 }
