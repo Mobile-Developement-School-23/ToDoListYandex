@@ -50,27 +50,23 @@ class TaskTableViewCell: UITableViewCell {
     private var deadline: Date?
     
     private var imageName: String {
-        get {
-            return done ? "checkboxOn" : (importance == .important ? "checkboxHighPriority" : "checkboxOff")
-        }
+        return done ? "checkboxOn" : (importance == .important ? "checkboxHighPriority" : "checkboxOff")
     }
     
     private var deadlineString: NSMutableAttributedString? {
-        get {
-            guard let deadline = deadline else { return nil }
-            let imageAttachment = NSTextAttachment()
-            imageAttachment.image = UIImage(systemName: "calendar")?.withTintColor(.labelTertiary)
-            let fullString = NSMutableAttributedString()
-            fullString.append(NSAttributedString(attachment: imageAttachment))
-            
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "d MMMM"
-            
-            let dateString = dateFormatter.string(from: deadline)
-            fullString.append(NSAttributedString(string: " " + dateString))
-            
-            return fullString
-        }
+        guard let deadline = deadline else { return nil }
+        let imageAttachment = NSTextAttachment()
+        imageAttachment.image = UIImage(systemName: "calendar")?.withTintColor(.labelTertiary)
+        let fullString = NSMutableAttributedString()
+        fullString.append(NSAttributedString(attachment: imageAttachment))
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "d MMMM"
+        
+        let dateString = dateFormatter.string(from: deadline)
+        fullString.append(NSAttributedString(string: " " + dateString))
+        
+        return fullString
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -144,9 +140,10 @@ class TaskTableViewCell: UITableViewCell {
     }
     
     private func setTaskText(_ text: String, isStrikethrough: Bool = false) {
-        let attributes: [NSAttributedString.Key : Any] = isStrikethrough ? [.strikethroughStyle: NSUnderlineStyle.single.rawValue,
-                                                                            .strikethroughColor: UIColor.labelTertiary,
-                                                                            .foregroundColor: UIColor.labelTertiary] : [:]
+        let attributes: [NSAttributedString.Key: Any] =
+        isStrikethrough ? [.strikethroughStyle: NSUnderlineStyle.single.rawValue,
+                           .strikethroughColor: UIColor.labelTertiary,
+                           .foregroundColor: UIColor.labelTertiary] : [:]
         
         let attributedText = NSAttributedString(
             string: text,
@@ -156,7 +153,7 @@ class TaskTableViewCell: UITableViewCell {
         taskTextLabel.attributedText = importance == .important ? textWithIcon(with: attributes) : attributedText
     }
     
-    private func textWithIcon(with attributes: [NSAttributedString.Key : Any]) -> NSMutableAttributedString {
+    private func textWithIcon(with attributes: [NSAttributedString.Key: Any]) -> NSMutableAttributedString {
         let imageAttachment = NSTextAttachment()
         imageAttachment.image = UIImage(named: "important")?.withRenderingMode(.alwaysOriginal)
         let fullString = NSMutableAttributedString()

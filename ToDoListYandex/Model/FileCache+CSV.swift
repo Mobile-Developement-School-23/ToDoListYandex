@@ -9,7 +9,7 @@ import Foundation
 
 extension FileCache {
     func saveTasksToCSV(usingFileURL fileURL: URL) {
-        let tasksCSVString = tasks.map{ $0.csv }.joined(separator: "\n")
+        let tasksCSVString = tasks.map { $0.csv }.joined(separator: "\n")
         
         do {
             try tasksCSVString.write(to: fileURL, atomically: true, encoding: .utf8)

@@ -84,8 +84,11 @@ extension TasksTableViewDataSource: UITableViewDataSource {
         }
     }
     
-    private func getTasksListInfoViewCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath) as! TasksListInfoViewCell
+    private func getTasksListInfoViewCell(_ tableView: UITableView,
+                                          cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellBasic = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath)
+        guard let cell = cellBasic as? TasksListInfoViewCell else { return cellBasic }
+        
         cell.setDoneNumber(getDoneTasksNumber())
         cell.separatorInset.right = .greatestFiniteMagnitude
         
@@ -98,9 +101,13 @@ extension TasksTableViewDataSource: UITableViewDataSource {
     }
     
     private func getTaskTableViewCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as! TaskTableViewCell
+        let cellBasic = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath)
+        guard let cell = cellBasic as? TaskTableViewCell else { return cellBasic }
         
-        cell.setInfo(taskText: tasks[indexPath.row - 1].text, importance: tasks[indexPath.row - 1].taskImportance, done: tasks[indexPath.row - 1].done, deadline:  tasks[indexPath.row - 1].deadlineDate)
+        cell.setInfo(taskText: tasks[indexPath.row - 1].text,
+                     importance: tasks[indexPath.row - 1].taskImportance,
+                     done: tasks[indexPath.row - 1].done,
+                     deadline: tasks[indexPath.row - 1].deadlineDate)
         
         cell.doneButtonTappedHandler = { [weak self] in
             self?.updateTaskDone(at: indexPath.row - 1)
@@ -110,8 +117,10 @@ extension TasksTableViewDataSource: UITableViewDataSource {
         return cell
     }
     
-    private func getNewTaskTableViewCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "newCell", for: indexPath) as! NewTaskTableViewCell
+    private func getNewTaskTableViewCell(_ tableView: UITableView,
+                                         cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellBasic = tableView.dequeueReusableCell(withIdentifier: "newCell", for: indexPath)
+        guard let cell = cellBasic as? NewTaskTableViewCell else { return cellBasic }
         
         cell.separatorInset.right = .greatestFiniteMagnitude
         
@@ -122,4 +131,3 @@ extension TasksTableViewDataSource: UITableViewDataSource {
         return cell
     }
 }
-

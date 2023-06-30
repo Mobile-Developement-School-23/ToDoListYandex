@@ -89,8 +89,10 @@ class TasksListViewController: UIViewController {
         
         tasksTableView.translatesAutoresizingMaskIntoConstraints = false
         tasksTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        tasksTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16).isActive = true
-        tasksTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
+        tasksTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,
+                                                constant: 16).isActive = true
+        tasksTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,
+                                                 constant: -16).isActive = true
         tasksTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
     
@@ -103,7 +105,8 @@ class TasksListViewController: UIViewController {
         
         addNewTaskView.translatesAutoresizingMaskIntoConstraints = false
         addNewTaskView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        addNewTaskView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
+        addNewTaskView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,
+                                               constant: -20).isActive = true
     }
     
     @objc private func newTaskViewTapped() {
@@ -126,6 +129,6 @@ class TasksListViewController: UIViewController {
         let navController = UINavigationController(rootViewController: taskViewController)
         navController.transitioningDelegate = self
         
-        self.present(navController, animated:true, completion: nil)
+        self.present(navController, animated: true, completion: nil)
     }
 }

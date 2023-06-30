@@ -33,7 +33,8 @@ class FileCache {
     
     func saveTasksToJSON(usingFileName fileName: String) {
         DDLogInfo("Start saving tasks to JSON with file: \(fileName)")
-        guard let documentDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+        guard let documentDirectoryURL = FileManager.default.urls(for: .documentDirectory,
+                                                                  in: .userDomainMask).first else {
             DDLogError("Error getting documentDirectory url")
             return
         }
@@ -53,7 +54,8 @@ class FileCache {
     
     func loadAllTasksFromJSON(usingFileName fileName: String) {
         DDLogInfo("Start loading tasks from JSON with file: \(fileName)")
-        guard let documentDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+        guard let documentDirectoryURL = FileManager.default.urls(for: .documentDirectory,
+                                                                  in: .userDomainMask).first else {
             DDLogError("Error getting documentDirectory url")
             return
         }
@@ -65,7 +67,7 @@ class FileCache {
                 return
             }
             
-            tasks = tasksDictionaryArray.compactMap{ TodoItem.parse(json: $0) }
+            tasks = tasksDictionaryArray.compactMap { TodoItem.parse(json: $0) }
             
             DDLogInfo("Tasks load from file: \(fileName)")
         } catch {

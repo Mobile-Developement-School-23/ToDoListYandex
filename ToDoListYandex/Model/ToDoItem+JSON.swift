@@ -10,7 +10,7 @@ import Foundation
 extension TodoItem {
     
     var json: Any {
-        var data: [String : Any] = [Constants.id: id,
+        var data: [String: Any] = [Constants.id: id,
                                     Constants.text: text,
                                     Constants.done: done,
                                     Constants.creationDate: creationDate.timeIntervalSince1970]

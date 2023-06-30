@@ -1,0 +1,6 @@
+framework module Pods_ToDoListYandexTests {
+  umbrella header "Pods-ToDoListYandexTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

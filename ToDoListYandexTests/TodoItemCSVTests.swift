@@ -20,7 +20,10 @@ final class TodoItemCSVTests: XCTestCase {
                             creationDate: Date(timeIntervalSince1970: 1686050000),
                             changeDate: Date(timeIntervalSince1970: 1686120000))
         
-        let correctOutputCSVString = "D69F0A30-603F-4F99-9140-2049E054297A;Do the hometasks;unimportant;1686800000;true;1686050000;1686120000"
+        let correctOutputCSVString = """
+        D69F0A30-603F-4F99-9140-2049E054297A;Do the hometasks;
+        unimportant;1686800000;true;1686050000;1686120000
+"""
         
         XCTAssertEqual(task.csv, correctOutputCSVString)
     }
@@ -43,7 +46,10 @@ final class TodoItemCSVTests: XCTestCase {
     }
     
     func testParseCSVWithAllCorrectParameters() throws {
-        let csvString = "D69F0A30-603F-4F99-9140-2049E054297A;Buy groceries;important;1686800000;true;1686050000;1686120000"
+        let csvString = """
+        D69F0A30-603F-4F99-9140-2049E054297A;Buy groceries;
+        important;1686800000;true;1686050000;1686120000
+"""
         
         let todoItem = TodoItem.parse(csv: csvString)
         

@@ -54,7 +54,11 @@ final class TodoItemJSONTests: XCTestCase {
         XCTAssertNil(data[Constants.deadlineDate])
         XCTAssertEqual(data[Constants.done] as? Bool, false)
         XCTAssertNotNil(data[Constants.creationDate] as? TimeInterval)
-        let creationDate = Date(timeIntervalSince1970: (data[Constants.creationDate] as! TimeInterval))
+        
+        guard let creationDateTimeInterval = data[Constants.creationDate] as? TimeInterval else {
+            XCTFail("Error getting correct type of task creation date")
+        }
+        let creationDate = Date(timeIntervalSince1970: creationDateTimeInterval)
         XCTAssert(abs(creationDate.timeIntervalSinceNow) < 60)
         XCTAssertNil(data[Constants.changeDate])
     }
