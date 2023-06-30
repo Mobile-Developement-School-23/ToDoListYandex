@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CocoaLumberjackSwift
 
 class TasksListViewController: UIViewController {
     
@@ -41,6 +42,8 @@ class TasksListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        DDLogInfo("Tasks List View loaded")
         
         tasksDelegate.dataSource = tasksDataSource
         tasksDelegate.view = self
@@ -104,6 +107,7 @@ class TasksListViewController: UIViewController {
     }
     
     @objc private func newTaskViewTapped() {
+        DDLogInfo("New Task Button Tapped")
         transitionToTaskVC()
     }
     
@@ -116,6 +120,7 @@ class TasksListViewController: UIViewController {
         taskViewController.reloadTasksData = {
             self.tasksDataSource.loadTasks()
             self.tasksTableView.reloadData()
+            DDLogInfo("Tasks Table reloaded")
         }
         
         let navController = UINavigationController(rootViewController: taskViewController)

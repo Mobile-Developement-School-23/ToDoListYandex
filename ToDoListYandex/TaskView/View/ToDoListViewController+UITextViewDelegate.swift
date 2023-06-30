@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CocoaLumberjackSwift
 
 extension ToDoListViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -30,5 +31,7 @@ extension ToDoListViewController: UITextViewDelegate {
         } else {
             constraint?.constant = max(newSizeOfTextView.height + heightGap, 120)
         }
+        
+        DDLogInfo("Text view height was changed to \(max(newSizeOfTextView.height + heightGap, 120))")
     }
 }

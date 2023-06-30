@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CocoaLumberjackSwift
 
 extension ToDoListViewController: UICalendarSelectionSingleDateDelegate {
     func dateSelection(_ selection: UICalendarSelectionSingleDate, didSelectDate dateComponents: DateComponents?) {
@@ -15,5 +16,6 @@ extension ToDoListViewController: UICalendarSelectionSingleDateDelegate {
         }
         
         _ = presenter.dateChangedTo(date)
+        DDLogInfo("Deadline date was chosen in calendar \(date.timeIntervalSince1970)")
     }
 }

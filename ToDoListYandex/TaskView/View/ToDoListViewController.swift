@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CocoaLumberjackSwift
 
 class ToDoListViewController: UIViewController, ToDoListViewControllerProtocol {
     
@@ -224,6 +225,8 @@ class ToDoListViewController: UIViewController, ToDoListViewControllerProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        DDLogInfo("ToDoListViewController loaded")
+        
         setupView()
         setupKeyboardSettings()
         
@@ -274,12 +277,14 @@ class ToDoListViewController: UIViewController, ToDoListViewControllerProtocol {
         if let keyboardSize = (sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             view.frame.size.height -= keyboardSize.height
         }
+        DDLogInfo("Keyboard was showed")
     }
     
     @objc func keyboardWillHide(sender: NSNotification) {
         if let keyboardSize = (sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             view.frame.size.height += keyboardSize.height
         }
+        DDLogInfo("Keyboard was hided")
     }
     
     @objc func keyboardDidHide(sender: NSNotification) {
@@ -384,37 +389,45 @@ class ToDoListViewController: UIViewController, ToDoListViewControllerProtocol {
     }
     
     @objc private func tappedCancelButton() {
+        DDLogInfo("Cancel button tapped")
         reloadTasksData?()
         navigationController?.dismiss(animated: true)
     }
     
     @objc private func tappedSaveButton() {
+        DDLogInfo("Save button tapped")
         presenter.saveTaskButtonTapped()
         reloadTasksData?()
         navigationController?.dismiss(animated: true)
     }
     
     @objc private func tappedColorPickerButton() {
+        DDLogInfo("Color Picker button tapped")
         presenter.colorPickerButtonTapped()
     }
     
     @objc private func changedBrightnessSliderValue(_ sender: UISlider) {
+        DDLogInfo("Slider value was changed")
         presenter.brightnessSliderChanged(value: Double(sender.value))
     }
     
     @objc private func importanceSegmentControlValueChanged(_ sender: UISegmentedControl) {
+        DDLogInfo("Importance segemnt control changed")
         presenter.importanceSegmentChangedTo(sender.selectedSegmentIndex)
     }
     
     @objc private func doDueSwitchChanged(_ sender: UISwitch) {
+        DDLogInfo("Deadline date switch tapped")
         _ = presenter.doDueSwitchActivated(sender.isOn)
     }
     
     @objc private func doDueDateLabelTapped() {
+        DDLogInfo("Deadline date tapped")
         presenter.doDueDateLabelTouched(isCalendarHidden: calendarView.isHidden)
     }
     
     @objc private func deleteButtonTapped() {
+        DDLogInfo("Delete button tapped")
         presenter.deleteElement()
         reloadTasksData?()
         navigationController?.dismiss(animated: true)
@@ -422,11 +435,13 @@ class ToDoListViewController: UIViewController, ToDoListViewControllerProtocol {
     
     func activateDoDueSwitch(_ activate: Bool) {
         doDueSwitch.isOn = activate
+        DDLogInfo("Deadline date switch activated")
     }
     
     func displayCalendar(_ display: Bool) {
         divider2.isHidden = !display
         calendarView.isHidden = !display
+        DDLogInfo(display ? "Calendar displayed": "Calendar hidden")
     }
     
     func startCalendarAnimation() {
@@ -445,39 +460,48 @@ class ToDoListViewController: UIViewController, ToDoListViewControllerProtocol {
             taskTextView.resignFirstResponder()
         }
         recalculateTextViewHeight(taskTextView)
+        DDLogInfo("Task text updated to \(text)")
     }
     
     func updateTextColor(_ color: UIColor) {
         taskTextView.textColor = color
+        DDLogInfo("Task text color changed to \(color.getColorCode())")
     }
     
     func updateImportanceControl(_ segment: Int) {
         importanceSegmentControl.selectedSegmentIndex = segment
+        DDLogInfo("Importance control value was changed to \(segment)")
     }
     
     func displayDoDueDateLabel(_ display: Bool) {
         doDueDateLabel.isHidden = !display
+        DDLogInfo(display ? "Deadline date label displayed" : "Deadline date label hidden")
     }
     
     func updateDeleteButton(setActive: Bool) {
         deleteButton.isEnabled = setActive
+        DDLogInfo(setActive ? "Delete button enabled" : "Delete button disabled")
     }
     
     func updateDoDueDateLabelValue(_ doDueDateString: String) {
         doDueDateLabel.text = doDueDateString
+        DDLogInfo("Deadline date Label value changed to \(doDueDateString)")
     }
     
     func changePickerViewButtonColor(_ color: UIColor) {
         colorButton.backgroundColor = color
+        DDLogInfo("Color Picker button color changed to \(color.getColorCode())")
     }
     
     func changeColorCodeText(_ text: String) {
         colorLabel.text = text
+        DDLogInfo("Color code text changed to \(text)")
     }
     
     func displayColorPickerView(_ display: Bool) {
         colorPickerView.isHidden = !display
         brightnessSliderView.isHidden = !display
+        DDLogInfo(display ? "Color picker hidden" : "Color picker displayed")
     }
     
     func startColorPickerAnimation() {
@@ -490,5 +514,6 @@ class ToDoListViewController: UIViewController, ToDoListViewControllerProtocol {
     
     func setSliderValue(_ value: Float) {
         brightnessSliderView.value = value
+        DDLogInfo("Slider Value changed to \(value)")
     }
 }
