@@ -45,4 +45,3 @@ final class TodoItemTests: XCTestCase {
         XCTAssert(todoItem.changeDate == nil)
     }
 }
-

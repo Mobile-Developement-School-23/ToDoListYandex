@@ -16,7 +16,8 @@ class TasksTableViewDelegate: NSObject {
 }
 
 extension TasksTableViewDelegate: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    func tableView(_ tableView: UITableView,
+                   leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         guard let dataSource = dataSource else { return nil }
         
         if indexPath.row == 0 || indexPath.row == dataSource.numberOfTasks() + 1 { return nil }
@@ -33,12 +34,13 @@ extension TasksTableViewDelegate: UITableViewDelegate {
         return UISwipeActionsConfiguration(actions: [doneAction])
     }
     
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    func tableView(_ tableView: UITableView,
+                   trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         guard let dataSource = dataSource else { return nil }
         
         if indexPath.row == 0 || indexPath.row == dataSource.numberOfTasks() + 1 { return nil }
         
-        let infoAction = UIContextualAction(style: .normal, title: nil) { (_, _, completion) in
+        let infoAction = UIContextualAction(style: .normal, title: nil) { _, _, _ in
             print("info")
         }
         infoAction.image = UIImage(systemName: "info.circle.fill")
@@ -68,7 +70,8 @@ extension TasksTableViewDelegate: UITableViewDelegate {
         if indexPath.row == dataSource.numberOfTasks() + 1 {
             rectCorner = [.bottomLeft, UIRectCorner.bottomRight]
             if dataSource.numberOfTasks() == 0 {
-                rectCorner = [UIRectCorner.topLeft, UIRectCorner.topRight, UIRectCorner.bottomLeft, UIRectCorner.bottomRight]
+                rectCorner = [UIRectCorner.topLeft, UIRectCorner.topRight,
+                              UIRectCorner.bottomLeft, UIRectCorner.bottomRight]
             }
         }
         
@@ -86,7 +89,9 @@ extension TasksTableViewDelegate: UITableViewDelegate {
         cellTappedHandler?(indexPath)
     }
     
-    func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+    func tableView(_ tableView: UITableView,
+                   contextMenuConfigurationForRowAt indexPath: IndexPath,
+                   point: CGPoint) -> UIContextMenuConfiguration? {
         
         let taskViewController = ToDoListViewController()
         if let task = dataSource?.task(at: indexPath.row - 1) {
@@ -100,7 +105,9 @@ extension TasksTableViewDelegate: UITableViewDelegate {
                                           actionProvider: nil)
     }
     
-    func tableView(_ tableView: UITableView, willPerformPreviewActionForMenuWith configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionCommitAnimating) {
+    func tableView(_ tableView: UITableView,
+                   willPerformPreviewActionForMenuWith configuration: UIContextMenuConfiguration,
+                   animator: UIContextMenuInteractionCommitAnimating) {
         guard let identifier = configuration.identifier as? String,
               let index = Int(identifier),
               let task = dataSource?.task(at: index)

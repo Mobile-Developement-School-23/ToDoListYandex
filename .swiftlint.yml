@@ -1,0 +1,5 @@
+disabled_rules:
+ - trailing_whitespace
+ - vertical_whitespace
+ - identifier_name
+ - weak_delegate

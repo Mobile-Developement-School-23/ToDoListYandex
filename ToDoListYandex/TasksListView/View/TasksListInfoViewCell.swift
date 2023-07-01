@@ -23,7 +23,6 @@ class TasksListInfoViewCell: UITableViewCell {
         button.titleLabel?.font = .sfProTextMedium15
         button.setTitle("Показать", for: .normal)
         button.contentHorizontalAlignment = .right
-        button.addTarget(self, action: #selector(showDoneTasksTapped), for: .touchUpInside)
         return button
     }()
     
@@ -60,6 +59,8 @@ class TasksListInfoViewCell: UITableViewCell {
     
     private func configureShowButton() {
         contentView.addSubview(showButton)
+        
+        showButton.addTarget(self, action: #selector(showDoneTasksTapped), for: .touchUpInside)
         
         showButton.translatesAutoresizingMaskIntoConstraints = false
         showButton.leadingAnchor.constraint(equalTo: tasksDoneLabel.trailingAnchor, constant: 16).isActive = true

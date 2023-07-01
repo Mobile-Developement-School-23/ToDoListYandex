@@ -33,7 +33,8 @@ class ColorPicker: UIView {
     }
     
     private func initialize() {
-        let touchGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.touchedColor(gestureRecognizer:)))
+        let touchGesture = UILongPressGestureRecognizer(target: self,
+                                                        action: #selector(self.touchedColor(gestureRecognizer:)))
         touchGesture.minimumPressDuration = 0
         self.addGestureRecognizer(touchGesture)
     }

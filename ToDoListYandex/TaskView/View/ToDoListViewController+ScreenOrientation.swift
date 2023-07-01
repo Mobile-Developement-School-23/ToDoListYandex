@@ -6,11 +6,14 @@
 //
 
 import UIKit
+import CocoaLumberjackSwift
 
 extension ToDoListViewController {
-    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+    override func willTransition(to newCollection: UITraitCollection,
+                                 with coordinator: UIViewControllerTransitionCoordinator) {
         displayAllElementsExeptTextView(!UIDevice.current.orientation.isLandscape)
         recalculateTextViewHeight(taskTextView, isLandscape: UIDevice.current.orientation.isLandscape)
+        DDLogInfo("Orientation changed to \(UIDevice.current.orientation.isPortrait ? "Portrait" : "Landscape")")
     }
     
     private func displayAllElementsExeptTextView(_ display: Bool) {

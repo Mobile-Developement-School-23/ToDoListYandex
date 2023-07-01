@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FileCache
 
 
 class ToDoListPresenter: ToDoListPresenterProtocol, ColorPickerDelegate {
@@ -14,7 +15,7 @@ class ToDoListPresenter: ToDoListPresenterProtocol, ColorPickerDelegate {
     private var taskText: String = ""
     private var importance: TodoItem.TaskImportance = .usual
     private var doDueActivated: Bool = false
-    private var deadline: Date? = nil
+    private var deadline: Date?
     
     private var brightTextColor: UIColor = .labelPrimary
     private var taskTextColor: UIColor = .labelPrimary
