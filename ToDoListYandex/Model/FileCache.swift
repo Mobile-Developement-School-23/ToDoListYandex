@@ -19,6 +19,14 @@ class FileCache {
         tasks.removeAll(where: { $0.id == id })
     }
     
+    func getTaskIndexById(_ id: String) -> Int? {
+        tasks.firstIndex(where: { $0.id == id })
+    }
+    
+    func replaceTask(_ task: TodoItem, atIndex index: Int) {
+        tasks[index] = task
+    }
+    
     func saveTasksToJSON(usingFileName fileName: String) {
         guard let documentDirectoryURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
             return

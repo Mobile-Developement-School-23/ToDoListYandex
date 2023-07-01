@@ -16,4 +16,6 @@ struct Constants {
     static let creationDate = "creationDate"
     static let changeDate = "changeDate"
     static let color = "color"
+    
+    static let fileName = "allTasks"
 }

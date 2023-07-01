@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		5DCCF1052A460F9000A15BE8 /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCCF1042A460F9000A15BE8 /* ColorPickerView.swift */; };
+		5DCCF11D2A4A1C5C00A15BE8 /* TasksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCCF11C2A4A1C5C00A15BE8 /* TasksListViewController.swift */; };
+		5DCCF11F2A4A261A00A15BE8 /* TasksTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCCF11E2A4A261A00A15BE8 /* TasksTableViewDataSource.swift */; };
+		5DCCF1212A4AF92900A15BE8 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCCF1202A4AF92900A15BE8 /* TaskTableViewCell.swift */; };
+		5DCCF12B2A4CC69F00A15BE8 /* TasksListInfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCCF12A2A4CC69F00A15BE8 /* TasksListInfoViewCell.swift */; };
+		5DCCF12D2A4CD7C400A15BE8 /* NewTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCCF12C2A4CD7C400A15BE8 /* NewTaskTableViewCell.swift */; };
+		5DCCF12F2A4CED6800A15BE8 /* TasksTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCCF12E2A4CED6800A15BE8 /* TasksTableViewDelegate.swift */; };
+		5DCCF1312A4DFA5300A15BE8 /* TransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCCF1302A4DFA5300A15BE8 /* TransitionAnimator.swift */; };
+		5DCCF1332A4DFABC00A15BE8 /* TasksListViewController+TransitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCCF1322A4DFABC00A15BE8 /* TasksListViewController+TransitionDelegate.swift */; };
+		5DCCF1352A4E452B00A15BE8 /* ToDoListViewController+ScreenOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCCF1342A4E452B00A15BE8 /* ToDoListViewController+ScreenOrientation.swift */; };
 		850FCB112A385A890012EE52 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FCB102A385A890012EE52 /* AppDelegate.swift */; };
 		850FCB132A385A890012EE52 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850FCB122A385A890012EE52 /* SceneDelegate.swift */; };
 		850FCB1A2A385A8A0012EE52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 850FCB192A385A8A0012EE52 /* Assets.xcassets */; };
@@ -48,6 +57,15 @@
 
 /* Begin PBXFileReference section */
 		5DCCF1042A460F9000A15BE8 /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
+		5DCCF11C2A4A1C5C00A15BE8 /* TasksListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListViewController.swift; sourceTree = "<group>"; };
+		5DCCF11E2A4A261A00A15BE8 /* TasksTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewDataSource.swift; sourceTree = "<group>"; };
+		5DCCF1202A4AF92900A15BE8 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		5DCCF12A2A4CC69F00A15BE8 /* TasksListInfoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListInfoViewCell.swift; sourceTree = "<group>"; };
+		5DCCF12C2A4CD7C400A15BE8 /* NewTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskTableViewCell.swift; sourceTree = "<group>"; };
+		5DCCF12E2A4CED6800A15BE8 /* TasksTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewDelegate.swift; sourceTree = "<group>"; };
+		5DCCF1302A4DFA5300A15BE8 /* TransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionAnimator.swift; sourceTree = "<group>"; };
+		5DCCF1322A4DFABC00A15BE8 /* TasksListViewController+TransitionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TasksListViewController+TransitionDelegate.swift"; sourceTree = "<group>"; };
+		5DCCF1342A4E452B00A15BE8 /* ToDoListViewController+ScreenOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDoListViewController+ScreenOrientation.swift"; sourceTree = "<group>"; };
 		850FCB0D2A385A890012EE52 /* ToDoListYandex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoListYandex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		850FCB102A385A890012EE52 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		850FCB122A385A890012EE52 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +128,55 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		5DCCF1192A4A19F900A15BE8 /* TaskView */ = {
+			isa = PBXGroup;
+			children = (
+				856418FB2A45A2E9009F601C /* Protocols */,
+				856418F42A435539009F601C /* Presenter */,
+				854B5E8B2A3FA772002AC531 /* View */,
+			);
+			path = TaskView;
+			sourceTree = "<group>";
+		};
+		5DCCF11A2A4A1A2E00A15BE8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5DCCF1042A460F9000A15BE8 /* ColorPickerView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5DCCF11B2A4A1B1A00A15BE8 /* TasksListView */ = {
+			isa = PBXGroup;
+			children = (
+				5DCCF1232A4B0C4500A15BE8 /* Model */,
+				5DCCF1222A4B0C3E00A15BE8 /* View */,
+			);
+			path = TasksListView;
+			sourceTree = "<group>";
+		};
+		5DCCF1222A4B0C3E00A15BE8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5DCCF11C2A4A1C5C00A15BE8 /* TasksListViewController.swift */,
+				5DCCF1202A4AF92900A15BE8 /* TaskTableViewCell.swift */,
+				5DCCF12A2A4CC69F00A15BE8 /* TasksListInfoViewCell.swift */,
+				5DCCF12C2A4CD7C400A15BE8 /* NewTaskTableViewCell.swift */,
+				5DCCF1302A4DFA5300A15BE8 /* TransitionAnimator.swift */,
+				5DCCF1322A4DFABC00A15BE8 /* TasksListViewController+TransitionDelegate.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5DCCF1232A4B0C4500A15BE8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5DCCF11E2A4A261A00A15BE8 /* TasksTableViewDataSource.swift */,
+				5DCCF12E2A4CED6800A15BE8 /* TasksTableViewDelegate.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		850FCB042A385A890012EE52 = {
 			isa = PBXGroup;
 			children = (
@@ -131,11 +198,11 @@
 		850FCB0F2A385A890012EE52 /* ToDoListYandex */ = {
 			isa = PBXGroup;
 			children = (
-				5DCCF1032A45EC4400A15BE8 /* Model */,
 				856418FE2A45AEE1009F601C /* UiKitExtensions */,
-				856418FB2A45A2E9009F601C /* Protocols */,
-				856418F42A435539009F601C /* Presenter */,
-				854B5E8B2A3FA772002AC531 /* View */,
+				5DCCF11B2A4A1B1A00A15BE8 /* TasksListView */,
+				5DCCF1192A4A19F900A15BE8 /* TaskView */,
+				5DCCF1032A45EC4400A15BE8 /* Model */,
+				5DCCF11A2A4A1A2E00A15BE8 /* View */,
 				850FCB102A385A890012EE52 /* AppDelegate.swift */,
 				850FCB122A385A890012EE52 /* SceneDelegate.swift */,
 				850FCB192A385A8A0012EE52 /* Assets.xcassets */,
@@ -163,7 +230,7 @@
 				854B5E8C2A3FA793002AC531 /* ToDoListViewController.swift */,
 				856418F72A459D65009F601C /* ToDoListViewController+UITextViewDelegate.swift */,
 				856418F92A459E2E009F601C /* ToDoListViewController+UICalendarSelectionSingleDateDelegate.swift */,
-				5DCCF1042A460F9000A15BE8 /* ColorPickerView.swift */,
+				5DCCF1342A4E452B00A15BE8 /* ToDoListViewController+ScreenOrientation.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -311,19 +378,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				856418F62A43554E009F601C /* ToDoListViewPresenter.swift in Sources */,
+				5DCCF1312A4DFA5300A15BE8 /* TransitionAnimator.swift in Sources */,
 				856418FA2A459E2E009F601C /* ToDoListViewController+UICalendarSelectionSingleDateDelegate.swift in Sources */,
 				850FCB422A3CB8FB0012EE52 /* TodoItem+CSV.swift in Sources */,
 				856418F82A459D65009F601C /* ToDoListViewController+UITextViewDelegate.swift in Sources */,
+				5DCCF11D2A4A1C5C00A15BE8 /* TasksListViewController.swift in Sources */,
 				856418FD2A45A2FD009F601C /* ToDoListProtocols.swift in Sources */,
 				850FCB112A385A890012EE52 /* AppDelegate.swift in Sources */,
 				850FCB252A38AE2C0012EE52 /* ToDoItem.swift in Sources */,
 				850FCB132A385A890012EE52 /* SceneDelegate.swift in Sources */,
 				5DCCF1052A460F9000A15BE8 /* ColorPickerView.swift in Sources */,
 				856419002A45AF05009F601C /* UIColor+Extension.swift in Sources */,
+				5DCCF1212A4AF92900A15BE8 /* TaskTableViewCell.swift in Sources */,
+				5DCCF1332A4DFABC00A15BE8 /* TasksListViewController+TransitionDelegate.swift in Sources */,
 				850FCB402A3CA7E00012EE52 /* Constants.swift in Sources */,
 				850FCB3C2A3BC2180012EE52 /* FileCache.swift in Sources */,
+				5DCCF11F2A4A261A00A15BE8 /* TasksTableViewDataSource.swift in Sources */,
+				5DCCF12D2A4CD7C400A15BE8 /* NewTaskTableViewCell.swift in Sources */,
+				5DCCF1352A4E452B00A15BE8 /* ToDoListViewController+ScreenOrientation.swift in Sources */,
+				5DCCF12B2A4CC69F00A15BE8 /* TasksListInfoViewCell.swift in Sources */,
 				850FCB272A38F6840012EE52 /* ToDoItem+JSON.swift in Sources */,
 				854B5E8D2A3FA793002AC531 /* ToDoListViewController.swift in Sources */,
+				5DCCF12F2A4CED6800A15BE8 /* TasksTableViewDelegate.swift in Sources */,
 				8564190D2A45D4EA009F601C /* UIFont+Extension.swift in Sources */,
 				850FCB462A3CD2370012EE52 /* FileCache+CSV.swift in Sources */,
 			);

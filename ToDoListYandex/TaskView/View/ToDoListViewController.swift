@@ -17,7 +17,7 @@ class ToDoListViewController: UIViewController, ToDoListViewControllerProtocol {
         return stackView
     }()
     
-    private let colorPickerStackView: UIStackView = {
+    let colorPickerStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.layer.cornerRadius = 16
@@ -76,7 +76,7 @@ class ToDoListViewController: UIViewController, ToDoListViewControllerProtocol {
         return view
     }()
     
-    private let taskTextView: UITextView = {
+    let taskTextView: UITextView = {
         let textView = UITextView()
         textView.text = "Что надо сделать?"
         textView.textColor = .labelTertiary
@@ -86,7 +86,7 @@ class ToDoListViewController: UIViewController, ToDoListViewControllerProtocol {
         return textView
     }()
     
-    private let settingsStackView: UIStackView = {
+    let settingsStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.backgroundColor = .backSecondary
@@ -116,7 +116,7 @@ class ToDoListViewController: UIViewController, ToDoListViewControllerProtocol {
         let usualTaskText = "нет"
         let imageImportant = UIImage(named: "important")?.withRenderingMode(.alwaysOriginal)
         let segmentControl = UISegmentedControl(items: [imageUnimportant, usualTaskText, imageImportant])
-        segmentControl.selectedSegmentIndex = 2
+        segmentControl.selectedSegmentIndex = 1
         segmentControl.addTarget(self, action: #selector(importanceSegmentControlValueChanged(_:)), for: .valueChanged)
         segmentControl.backgroundColor = .supportOverlay
         segmentControl.selectedSegmentTintColor = .backElevated
@@ -197,7 +197,7 @@ class ToDoListViewController: UIViewController, ToDoListViewControllerProtocol {
         return calendar
     }()
     
-    private let deleteButton: UIButton = {
+    let deleteButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 16
         button.backgroundColor = .backSecondary
@@ -213,10 +213,17 @@ class ToDoListViewController: UIViewController, ToDoListViewControllerProtocol {
     
     var presenter: ToDoListPresenterProtocol!
     
+    var reloadTasksData: (() -> Void)?
+    
+    convenience init() {
+        self.init(nibName:nil, bundle:nil)
+        
+        setupPresenter()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupPresenter()
         setupView()
         setupKeyboardSettings()
         
@@ -228,8 +235,6 @@ class ToDoListViewController: UIViewController, ToDoListViewControllerProtocol {
         
         colorPickerView.delegate = presenter as? ColorPickerDelegate
         taskTextView.delegate = self
-        
-        presenter.loadTaskInfo()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -242,6 +247,9 @@ class ToDoListViewController: UIViewController, ToDoListViewControllerProtocol {
     
     private func setupView() {
         view.backgroundColor = .backPrimary
+        
+        let gestureRecognizer = UITapGestureRecognizer(target: self,action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(gestureRecognizer)
     }
     
     private func setupPresenter() {
@@ -253,11 +261,13 @@ class ToDoListViewController: UIViewController, ToDoListViewControllerProtocol {
     private func setupKeyboardSettings() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: self.view.window)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: self.view.window)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide), name: UIResponder.keyboardDidHideNotification, object: self.view.window)
     }
     
     private func removeKeyboardSettings() {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: self.view.window)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: self.view.window)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardDidHideNotification, object: self.view.window)
     }
     
     @objc func keyboardWillShow(sender: NSNotification) {
@@ -265,15 +275,25 @@ class ToDoListViewController: UIViewController, ToDoListViewControllerProtocol {
             view.frame.size.height -= keyboardSize.height
         }
     }
+    
     @objc func keyboardWillHide(sender: NSNotification) {
         if let keyboardSize = (sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             view.frame.size.height += keyboardSize.height
         }
     }
     
+    @objc func keyboardDidHide(sender: NSNotification) {
+        recalculateTextViewHeight(taskTextView, isLandscape: true)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
     func configureNavBar() {
         navigationItem.title = "Дело"
         navigationController?.navigationBar.titleTextAttributes = [.font: UIFont.sfProTextSemibold17]
+        navigationController?.navigationBar.prefersLargeTitles = false
         
         let cancelBarButtonItem = UIBarButtonItem(title: "Отменить", style: .plain, target: self, action: #selector(tappedCancelButton))
         cancelBarButtonItem.setTitleTextAttributes([.font: UIFont.sfProTextRegular17, .foregroundColor: UIColor.colorBlue],
@@ -364,15 +384,18 @@ class ToDoListViewController: UIViewController, ToDoListViewControllerProtocol {
     }
     
     @objc private func tappedCancelButton() {
-        print("Отменить")
+        reloadTasksData?()
+        navigationController?.dismiss(animated: true)
     }
     
     @objc private func tappedSaveButton() {
-        presenter.saveTask()
+        presenter.saveTaskButtonTapped()
+        reloadTasksData?()
+        navigationController?.dismiss(animated: true)
     }
     
     @objc private func tappedColorPickerButton() {
-        presenter.colorPickerButtonTapped(isPickerDisplayed: !colorPickerView.isHidden)
+        presenter.colorPickerButtonTapped()
     }
     
     @objc private func changedBrightnessSliderValue(_ sender: UISlider) {
@@ -380,19 +403,21 @@ class ToDoListViewController: UIViewController, ToDoListViewControllerProtocol {
     }
     
     @objc private func importanceSegmentControlValueChanged(_ sender: UISegmentedControl) {
-        _ = presenter.setImportanceSegment(sender.selectedSegmentIndex)
+        presenter.importanceSegmentChangedTo(sender.selectedSegmentIndex)
     }
     
     @objc private func doDueSwitchChanged(_ sender: UISwitch) {
-        _ = presenter.doDueSwitchActivate(sender.isOn)
+        _ = presenter.doDueSwitchActivated(sender.isOn)
     }
     
     @objc private func doDueDateLabelTapped() {
-        _ = presenter.doDueDateLabelTouched(isCalendarHidden: calendarView.isHidden)
+        presenter.doDueDateLabelTouched(isCalendarHidden: calendarView.isHidden)
     }
     
     @objc private func deleteButtonTapped() {
-        presenter.deleteElements()
+        presenter.deleteElement()
+        reloadTasksData?()
+        navigationController?.dismiss(animated: true)
     }
     
     func activateDoDueSwitch(_ activate: Bool) {
@@ -412,13 +437,18 @@ class ToDoListViewController: UIViewController, ToDoListViewControllerProtocol {
         }
     }
     
-    func updateTaskText(_ text: String, textColor: UIColor?, isResignFirstResponder: Bool) {
-        taskTextView.text = text
-        taskTextView.textColor = textColor ?? taskTextView.textColor
+    func updateTaskText(_ text: NSAttributedString, isResignFirstResponder: Bool) {
+        let font = taskTextView.font
+        taskTextView.attributedText = text
+        taskTextView.font = font
         if isResignFirstResponder {
             taskTextView.resignFirstResponder()
         }
         recalculateTextViewHeight(taskTextView)
+    }
+    
+    func updateTextColor(_ color: UIColor) {
+        taskTextView.textColor = color
     }
     
     func updateImportanceControl(_ segment: Int) {

@@ -8,6 +8,8 @@
 import UIKit
 
 extension UIFont {
+    static let sfProTextSemibold34: UIFont = UIFont(name: "SFProText-Semibold", size: 34)!
+    
     static let sfProTextRegular17: UIFont = UIFont(name: "SFProText-Regular", size: 17)!
     static let sfProTextMedium17: UIFont = UIFont(name: "SFProText-Medium", size: 17)!
     static let sfProTextSemibold17: UIFont = UIFont(name: "SFProText-Semibold", size: 17)!
