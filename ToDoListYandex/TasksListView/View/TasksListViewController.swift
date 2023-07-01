@@ -7,6 +7,7 @@
 
 import UIKit
 import CocoaLumberjackSwift
+import FileCache
 
 class TasksListViewController: UIViewController {
     

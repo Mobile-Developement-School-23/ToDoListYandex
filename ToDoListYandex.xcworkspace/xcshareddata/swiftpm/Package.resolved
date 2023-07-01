@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "filecache",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Anastasia1944/FileCache.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "f12c0db836890dc3785c82d25030e0ce75ebe5f4"
+      }
+    },
+    {
       "identity" : "swift-log",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-log.git",
