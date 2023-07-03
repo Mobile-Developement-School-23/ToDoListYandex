@@ -8,7 +8,7 @@
 import UIKit
 import CocoaLumberjackSwift
 
-extension ToDoListViewController: ToDoListViewControllerProtocol {
+extension TaskViewController: TaskViewControllerProtocol {
     func activateDoDueSwitch(_ activate: Bool) {
         doDueSwitch.isOn = activate
         DDLogInfo("Deadline date switch activated")

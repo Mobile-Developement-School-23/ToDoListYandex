@@ -116,7 +116,7 @@ class TasksListViewController: UIViewController {
     }
     
     func transitionToTaskVC(withTodoItem todoItem: TodoItem? = nil) {
-        let taskViewController = ToDoListViewController()
+        let taskViewController = TaskViewController()
         if let todoItem = todoItem {
             _ = taskViewController.presenter.fillTaskInfo(todoItem)
         }

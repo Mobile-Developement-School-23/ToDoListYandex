@@ -8,7 +8,7 @@
 import UIKit
 import CocoaLumberjackSwift
 
-extension ToDoListViewController {
+extension TaskViewController {
     
     func setupView() {
         view.backgroundColor = .backPrimary
@@ -18,7 +18,7 @@ extension ToDoListViewController {
     }
     
     func setupPresenter() {
-        let presenter = ToDoListPresenter()
+        let presenter = TaskPresenter()
         presenter.view = self
         self.presenter = presenter
     }

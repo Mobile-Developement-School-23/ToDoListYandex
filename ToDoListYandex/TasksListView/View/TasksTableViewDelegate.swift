@@ -93,7 +93,7 @@ extension TasksTableViewDelegate: UITableViewDelegate {
                    contextMenuConfigurationForRowAt indexPath: IndexPath,
                    point: CGPoint) -> UIContextMenuConfiguration? {
         
-        let taskViewController = ToDoListViewController()
+        let taskViewController = TaskViewController()
         if let task = dataSource?.task(at: indexPath.row - 1) {
             _ = taskViewController.presenter.fillTaskInfo(task)
         }

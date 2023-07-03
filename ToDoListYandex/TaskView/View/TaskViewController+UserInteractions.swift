@@ -8,7 +8,7 @@
 import Foundation
 import CocoaLumberjackSwift
 
-extension ToDoListViewController {
+extension TaskViewController {
     @objc func tappedCancelButton() {
         DDLogInfo("Cancel button tapped")
         reloadTasksData?()

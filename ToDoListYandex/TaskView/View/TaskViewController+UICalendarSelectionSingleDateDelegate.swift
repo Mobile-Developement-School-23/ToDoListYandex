@@ -8,7 +8,7 @@
 import UIKit
 import CocoaLumberjackSwift
 
-extension ToDoListViewController: UICalendarSelectionSingleDateDelegate {
+extension TaskViewController: UICalendarSelectionSingleDateDelegate {
     func dateSelection(_ selection: UICalendarSelectionSingleDate, didSelectDate dateComponents: DateComponents?) {
         guard let dateComponents = dateComponents,
               let date = Calendar.current.date(from: dateComponents) else {

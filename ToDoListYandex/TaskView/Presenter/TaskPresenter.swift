@@ -9,7 +9,7 @@ import UIKit
 import FileCache
 
 
-class ToDoListPresenter: ToDoListPresenterProtocol, ColorPickerDelegate {
+class TaskPresenter: TaskPresenterProtocol, ColorPickerDelegate {
     
     private var id: String = ""
     private var taskText: String = ""
@@ -23,7 +23,7 @@ class ToDoListPresenter: ToDoListPresenterProtocol, ColorPickerDelegate {
     
     private var isPickerDisplayed: Bool = false
     
-    weak var view: ToDoListViewControllerProtocol!
+    weak var view: TaskViewControllerProtocol!
     
     private let fileName = "newTaskFileName"
     
@@ -77,10 +77,7 @@ class ToDoListPresenter: ToDoListPresenterProtocol, ColorPickerDelegate {
     
     private func setDeadlineDate(_ deadline: Date?) {
         if let deadline = deadline {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "d MMMM yyyy"
-            
-            let dateString = dateFormatter.string(from: deadline)
+            let dateString = deadline.dayMonthYearDate
             view.displayDoDueDateLabel(true)
             view.updateDoDueDateLabelValue(dateString)
             view.activateDoDueSwitch(true)
@@ -131,10 +128,7 @@ class ToDoListPresenter: ToDoListPresenterProtocol, ColorPickerDelegate {
     }
     
     func setTomorrowDeadline() {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "d MMMM yyyy"
         let date = Calendar.current.date(byAdding: .day, value: 1, to: Date()) ?? Date()
-
         setDeadlineDate(date)
     }
     

@@ -8,7 +8,7 @@
 import UIKit
 import CocoaLumberjackSwift
 
-extension ToDoListViewController {
+extension TaskViewController {
     override func willTransition(to newCollection: UITraitCollection,
                                  with coordinator: UIViewControllerTransitionCoordinator) {
         displayAllElementsExeptTextView(!UIDevice.current.orientation.isLandscape)

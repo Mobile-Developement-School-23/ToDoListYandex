@@ -1,15 +1,13 @@
 //
-//  ToDoListProtocols.swift
+//  TaskViewControllerProtocol.swift
 //  ToDoListYandex
 //
-//  Created by Anastasia Sharapenko on 6/23/23.
+//  Created by Анастасия Горячевская on 03.07.2023.
 //
 
 import UIKit
-import FileCache
 
-
-protocol ToDoListViewControllerProtocol: AnyObject {
+protocol TaskViewControllerProtocol: AnyObject {
     
     func updateDeleteButton(setActive: Bool)
     
@@ -38,27 +36,4 @@ protocol ToDoListViewControllerProtocol: AnyObject {
     func startColorPickerAnimation()
     
     func setSliderValue(_ value: Float)
-}
-
-protocol ToDoListPresenterProtocol {
-    
-    func fillTaskInfo(_ todoItem: TodoItem) -> Bool
-    
-    func textChangedTo(_ text: String)
-    
-    func importanceSegmentChangedTo(_ importanceSegment: Int)
-    
-    func dateChangedTo(_ date: Date)
-    
-    func doDueSwitchActivated(_ activated: Bool)
-    
-    func doDueDateLabelTouched(isCalendarHidden: Bool)
-    
-    func colorPickerButtonTapped()
-    
-    func brightnessSliderChanged(value: Double)
-    
-    func saveTaskButtonTapped()
-    
-    func deleteElement()
 }

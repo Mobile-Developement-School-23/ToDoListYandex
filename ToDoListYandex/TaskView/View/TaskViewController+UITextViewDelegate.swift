@@ -8,7 +8,7 @@
 import UIKit
 import CocoaLumberjackSwift
 
-extension ToDoListViewController: UITextViewDelegate {
+extension TaskViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         _ = presenter.textChangedTo(textView.text)
     }

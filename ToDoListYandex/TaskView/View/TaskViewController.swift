@@ -8,7 +8,7 @@
 import UIKit
 import CocoaLumberjackSwift
 
-class ToDoListViewController: UIViewController {
+class TaskViewController: UIViewController {
     
     let elementsScrollView = UIScrollView()
     let contentStackView: UIStackView = {
@@ -168,10 +168,8 @@ class ToDoListViewController: UIViewController {
         label.font = .sfProTextSemibold13
         label.textColor = .colorBlue
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "d MMMM yyyy"
         let date = Calendar.current.date(byAdding: .day, value: 1, to: Date()) ?? Date()
-        label.text = dateFormatter.string(from: date)
+        label.text = date.dayMonthYearDate
         label.heightAnchor.constraint(equalToConstant: 18).isActive = true
         return label
     }()
@@ -213,7 +211,7 @@ class ToDoListViewController: UIViewController {
         return button
     }()
     
-    var presenter: ToDoListPresenterProtocol!
+    var presenter: TaskPresenterProtocol!
     var reloadTasksData: (() -> Void)?
     
     convenience init() {

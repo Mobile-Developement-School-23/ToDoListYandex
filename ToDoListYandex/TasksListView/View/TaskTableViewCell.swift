@@ -61,10 +61,7 @@ class TaskTableViewCell: UITableViewCell {
         let fullString = NSMutableAttributedString()
         fullString.append(NSAttributedString(attachment: imageAttachment))
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "d MMMM"
-        
-        let dateString = dateFormatter.string(from: deadline)
+        let dateString = deadline.dayMonthDate
         fullString.append(NSAttributedString(string: " " + dateString))
         
         return fullString
