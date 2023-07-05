@@ -85,8 +85,8 @@ extension TasksTableViewDataSource: UITableViewDataSource {
         }
     }
     
-    private func getTasksListInfoViewCell(_ tableView: UITableView,
-                                          cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    @MainActor private func getTasksListInfoViewCell(_ tableView: UITableView,
+                                                     cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellBasic = tableView.dequeueReusableCell(withIdentifier: "infoCell", for: indexPath)
         guard let cell = cellBasic as? TasksListInfoViewCell else { return cellBasic }
         
@@ -101,7 +101,8 @@ extension TasksTableViewDataSource: UITableViewDataSource {
         return cell
     }
     
-    private func getTaskTableViewCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    @MainActor private func getTaskTableViewCell(_ tableView: UITableView,
+                                                 cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellBasic = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath)
         guard let cell = cellBasic as? TaskTableViewCell else { return cellBasic }
         
@@ -118,8 +119,8 @@ extension TasksTableViewDataSource: UITableViewDataSource {
         return cell
     }
     
-    private func getNewTaskTableViewCell(_ tableView: UITableView,
-                                         cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    @MainActor private func getNewTaskTableViewCell(_ tableView: UITableView,
+                                                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellBasic = tableView.dequeueReusableCell(withIdentifier: "newCell", for: indexPath)
         guard let cell = cellBasic as? NewTaskTableViewCell else { return cellBasic }
         

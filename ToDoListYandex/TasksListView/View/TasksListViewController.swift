@@ -46,6 +46,8 @@ class TasksListViewController: UIViewController {
         
         DDLogInfo("Tasks List View loaded")
         
+        CheckRequest()
+        
         tasksDelegate.dataSource = tasksDataSource
         tasksDelegate.view = self
         tasksTableView.dataSource = tasksDataSource

@@ -15,6 +15,8 @@
 		5D0881D72A4F1801008F8058 /* FileCacheSavingToJSONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D0881D62A4F1801008F8058 /* FileCacheSavingToJSONTests.swift */; };
 		5D3E0F4A2A5376CF00506692 /* TaskViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3E0F492A5376CF00506692 /* TaskViewControllerProtocol.swift */; };
 		5D3E0F4C2A53789300506692 /* Date+DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3E0F4B2A53789300506692 /* Date+DateFormatter.swift */; };
+		5D3E0F4F2A537C8E00506692 /* URLSession+URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3E0F4E2A537C8E00506692 /* URLSession+URLRequest.swift */; };
+		5D3E0F512A54CBBD00506692 /* CheckRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3E0F502A54CBBD00506692 /* CheckRequest.swift */; };
 		5D4394272A4FC8D30005EC2A /* FileCache in Frameworks */ = {isa = PBXBuildFile; productRef = 5D4394262A4FC8D30005EC2A /* FileCache */; };
 		5DCCF1052A460F9000A15BE8 /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCCF1042A460F9000A15BE8 /* ColorPickerView.swift */; };
 		5DCCF11D2A4A1C5C00A15BE8 /* TasksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCCF11C2A4A1C5C00A15BE8 /* TasksListViewController.swift */; };
@@ -73,6 +75,8 @@
 		5D0881D62A4F1801008F8058 /* FileCacheSavingToJSONTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCacheSavingToJSONTests.swift; sourceTree = "<group>"; };
 		5D3E0F492A5376CF00506692 /* TaskViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewControllerProtocol.swift; sourceTree = "<group>"; };
 		5D3E0F4B2A53789300506692 /* Date+DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+DateFormatter.swift"; sourceTree = "<group>"; };
+		5D3E0F4E2A537C8E00506692 /* URLSession+URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+URLRequest.swift"; sourceTree = "<group>"; };
+		5D3E0F502A54CBBD00506692 /* CheckRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckRequest.swift; sourceTree = "<group>"; };
 		5DCCF1042A460F9000A15BE8 /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
 		5DCCF11C2A4A1C5C00A15BE8 /* TasksListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListViewController.swift; sourceTree = "<group>"; };
 		5DCCF11E2A4A261A00A15BE8 /* TasksTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -142,7 +146,6 @@
 				850FCB122A385A890012EE52 /* SceneDelegate.swift */,
 				850FCB192A385A8A0012EE52 /* Assets.xcassets */,
 				850FCB1B2A385A8A0012EE52 /* LaunchScreen.storyboard */,
-				850FCB1E2A385A8A0012EE52 /* Info.plist */,
 				856419012A45CEEE009F601C /* fonts */,
 			);
 			path = App;
@@ -217,6 +220,8 @@
 				5DCCF11B2A4A1B1A00A15BE8 /* TasksListView */,
 				5DCCF1192A4A19F900A15BE8 /* TaskView */,
 				5D3E0F4D2A537B5C00506692 /* App */,
+				5D3E0F502A54CBBD00506692 /* CheckRequest.swift */,
+				850FCB1E2A385A8A0012EE52 /* Info.plist */,
 			);
 			path = ToDoListYandex;
 			sourceTree = "<group>";
@@ -272,6 +277,7 @@
 				856418FF2A45AF05009F601C /* UIColor+Extension.swift */,
 				8564190C2A45D4EA009F601C /* UIFont+Extension.swift */,
 				5D3E0F4B2A53789300506692 /* Date+DateFormatter.swift */,
+				5D3E0F4E2A537C8E00506692 /* URLSession+URLRequest.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -499,10 +505,12 @@
 				856418F82A459D65009F601C /* TaskViewController+UITextViewDelegate.swift in Sources */,
 				5D3E0F4A2A5376CF00506692 /* TaskViewControllerProtocol.swift in Sources */,
 				5DCCF11D2A4A1C5C00A15BE8 /* TasksListViewController.swift in Sources */,
+				5D3E0F512A54CBBD00506692 /* CheckRequest.swift in Sources */,
 				856418FD2A45A2FD009F601C /* TaskPresenterProtocol.swift in Sources */,
 				850FCB112A385A890012EE52 /* AppDelegate.swift in Sources */,
 				850FCB132A385A890012EE52 /* SceneDelegate.swift in Sources */,
 				5DCCF1052A460F9000A15BE8 /* ColorPickerView.swift in Sources */,
+				5D3E0F4F2A537C8E00506692 /* URLSession+URLRequest.swift in Sources */,
 				856419002A45AF05009F601C /* UIColor+Extension.swift in Sources */,
 				5DCCF1212A4AF92900A15BE8 /* TaskTableViewCell.swift in Sources */,
 				5DCCF1332A4DFABC00A15BE8 /* TasksListViewController+TransitionDelegate.swift in Sources */,
@@ -693,6 +701,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = asharapenko.ToDoListYandex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -723,6 +732,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = asharapenko.ToDoListYandex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
