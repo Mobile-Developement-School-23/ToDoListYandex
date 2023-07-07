@@ -27,7 +27,7 @@ protocol TaskPresenterProtocol {
     
     func brightnessSliderChanged(value: Double)
     
-    func saveTaskButtonTapped()
+    func saveTaskButtonTapped() -> (TodoItem, Bool)?
     
-    func deleteElement()
+    func deleteElement() -> String?
 }

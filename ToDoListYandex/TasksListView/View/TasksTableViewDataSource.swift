@@ -18,6 +18,10 @@ class TasksTableViewDataSource: NSObject {
     
     private let fileCache = FileCache()
     
+    weak var view: TasksListViewController?
+    
+    private let networkModel = NetworkModel()
+    
     var newTaskButtonTappedHandler: (() -> Void)?
     
     override init() {
@@ -26,12 +30,22 @@ class TasksTableViewDataSource: NSObject {
     }
     
     func loadTasks() {
-        fileCache.loadAllTasksFromJSON(usingFileName: Constants.fileName)
-        tasks = fileCache.tasks
+        networkModel.loadTasks {
+            self.tasks = self.networkModel.getTasks().sorted(by: { $0.creationDate > $1.creationDate })
+            DispatchQueue.main.async {
+                self.view?.tasksTableView.reloadData()
+            }
+        }
     }
     
     func numberOfTasks() -> Int {
         tasks.count
+    }
+    
+    func addTask(_ task: TodoItem) {
+        networkModel.addTask(task, completion: {
+            self.loadTasks()
+        })
     }
     
     func task(at row: Int) -> TodoItem? {
@@ -43,15 +57,35 @@ class TasksTableViewDataSource: NSObject {
     
     func removeTask(at row: Int) -> TodoItem {
         let taskToDelete = tasks.remove(at: row)
-        fileCache.removeTaskById(taskToDelete.id)
-        fileCache.saveTasksToJSON(usingFileName: Constants.fileName)
+        deleteTask(byId: taskToDelete.id)
         return taskToDelete
     }
     
+    func deleteTask(byId id: String) {
+        networkModel.deleteTask(id: id) {
+            self.loadTasks()
+        }
+    }
+    
+    func updateTask(_ task: TodoItem) {
+        networkModel.updateTask(task, completion: {
+            self.loadTasks()
+        })
+    }
+    
     func updateTaskDone(at row: Int) {
-        tasks[row].done = !tasks[row].done
-        fileCache.replaceTask(tasks[row], atIndex: row)
-        fileCache.saveTasksToJSON(usingFileName: Constants.fileName)
+        let updatedTask = TodoItem(id: tasks[row].id,
+                                   text: tasks[row].text,
+                                   taskImportance: tasks[row].taskImportance,
+                                   deadlineDate: tasks[row].deadlineDate,
+                                   done: !tasks[row].done,
+                                   creationDate: tasks[row].creationDate,
+                                   changeDate: tasks[row].changeDate,
+                                   textColor: tasks[row].hexColor)
+        
+        networkModel.updateTask(updatedTask) {
+            self.loadTasks()
+        }
     }
     
     func getDoneTasksNumber() -> Int {
