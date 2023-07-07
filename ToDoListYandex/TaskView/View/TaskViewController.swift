@@ -7,6 +7,7 @@
 
 import UIKit
 import CocoaLumberjackSwift
+import FileCache
 
 class TaskViewController: UIViewController {
     
@@ -212,7 +213,8 @@ class TaskViewController: UIViewController {
     }()
     
     var presenter: TaskPresenterProtocol!
-    var reloadTasksData: (() -> Void)?
+    var deleteTask: ((String) -> Void)?
+    var addNewTask: ((TodoItem, Bool) -> Void)?
     
     convenience init() {
         self.init(nibName: nil, bundle: nil)

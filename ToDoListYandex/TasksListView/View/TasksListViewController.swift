@@ -11,7 +11,7 @@ import FileCache
 
 class TasksListViewController: UIViewController {
     
-    private let tasksTableView: UITableView = {
+    let tasksTableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .clear
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 52, bottom: 0, right: 0)
@@ -46,10 +46,9 @@ class TasksListViewController: UIViewController {
         
         DDLogInfo("Tasks List View loaded")
         
-        CheckRequest()
-        
         tasksDelegate.dataSource = tasksDataSource
         tasksDelegate.view = self
+        tasksDataSource.view = self
         tasksTableView.dataSource = tasksDataSource
         tasksTableView.delegate = tasksDelegate
         
@@ -123,10 +122,16 @@ class TasksListViewController: UIViewController {
             _ = taskViewController.presenter.fillTaskInfo(todoItem)
         }
         
-        taskViewController.reloadTasksData = {
-            self.tasksDataSource.loadTasks()
-            self.tasksTableView.reloadData()
-            DDLogInfo("Tasks Table reloaded")
+        taskViewController.deleteTask = { id in
+            self.tasksDataSource.deleteTask(byId: id)
+        }
+        
+        taskViewController.addNewTask = { task, isNewTask in
+            if isNewTask {
+                self.tasksDataSource.addTask(task)
+            } else {
+                self.tasksDataSource.updateTask(task)
+            }
         }
         
         let navController = UINavigationController(rootViewController: taskViewController)

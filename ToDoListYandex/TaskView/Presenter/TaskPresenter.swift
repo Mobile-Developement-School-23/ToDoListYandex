@@ -11,6 +11,8 @@ import FileCache
 
 class TaskPresenter: TaskPresenterProtocol, ColorPickerDelegate {
     
+    private var originalTodoItem: TodoItem?
+    
     private var id: String = ""
     private var taskText: String = ""
     private var importance: TodoItem.TaskImportance = .usual
@@ -35,6 +37,7 @@ class TaskPresenter: TaskPresenterProtocol, ColorPickerDelegate {
         setImportance(todoItem.taskImportance)
         setTextColor(UIColor(hex: todoItem.hexColor ?? "") ?? .labelPrimary)
         setDeadlineDate(todoItem.deadlineDate)
+        originalTodoItem = todoItem
         
         return true
     }
@@ -161,46 +164,38 @@ class TaskPresenter: TaskPresenterProtocol, ColorPickerDelegate {
         }
     }
     
-    func saveTaskButtonTapped() {
+    func saveTaskButtonTapped() -> (TodoItem, Bool)? {
         saveTask()
     }
     
-    private func saveTask() {
-        guard isInfoFilled() else { return }
+    private func saveTask() -> (TodoItem, Bool)? {
+        guard isInfoFilled() else { return nil }
         
-        let fileCache = FileCache()
-        fileCache.loadAllTasksFromJSON(usingFileName: Constants.fileName)
-        
-        if let index = fileCache.getTaskIndexById(id) {
-            let task = fileCache.tasks[index]
-            let todoItem = TodoItem(id: task.id,
-                                    text: taskText,
-                                    taskImportance: importance,
-                                    deadlineDate: deadline,
-                                    done: task.done,
-                                    creationDate: task.creationDate,
-                                    changeDate: Date(),
-                                    textColor: taskTextColor.getColorCode())
-            fileCache.replaceTask(todoItem, atIndex: index)
-        } else {
-            let todoItem = TodoItem(text: taskText,
-                                    taskImportance: importance,
-                                    deadlineDate: deadline,
-                                    creationDate: Date(),
-                                    textColor: taskTextColor.getColorCode())
-            fileCache.addNewTask(todoItem)
+        var id: String = UUID().uuidString
+        var done: Bool = false
+        var changeDate: Date?
+        var creationDate: Date = Date()
+        if let originalTodoItem = originalTodoItem {
+            done = originalTodoItem.done
+            changeDate = originalTodoItem.changeDate
+            id = originalTodoItem.id
+            creationDate = originalTodoItem.creationDate
         }
         
-        fileCache.saveTasksToJSON(usingFileName: Constants.fileName)
+        let todoItem = TodoItem(id: id,
+                                text: taskText,
+                                taskImportance: importance,
+                                deadlineDate: deadline,
+                                done: done,
+                                creationDate: creationDate,
+                                changeDate: changeDate,
+                                textColor: taskTextColor.getColorCode())
         
+        return (todoItem, self.id == "")
     }
     
 
-    func deleteElement() {
-        let fileCache = FileCache()
-        fileCache.loadAllTasksFromJSON(usingFileName: Constants.fileName)
-        
-        fileCache.removeTaskById(id)
-        fileCache.saveTasksToJSON(usingFileName: Constants.fileName)
+    func deleteElement() -> String? {
+        id != "" ? id : nil
     }
 }

@@ -11,14 +11,14 @@ import CocoaLumberjackSwift
 extension TaskViewController {
     @objc func tappedCancelButton() {
         DDLogInfo("Cancel button tapped")
-        reloadTasksData?()
         navigationController?.dismiss(animated: true)
     }
     
     @objc func tappedSaveButton() {
         DDLogInfo("Save button tapped")
-        presenter.saveTaskButtonTapped()
-        reloadTasksData?()
+        if let (task, isNew) = presenter.saveTaskButtonTapped() {
+            addNewTask?(task, isNew)
+        }
         navigationController?.dismiss(animated: true)
     }
     
@@ -49,8 +49,9 @@ extension TaskViewController {
     
     @objc func deleteButtonTapped() {
         DDLogInfo("Delete button tapped")
-        presenter.deleteElement()
-        reloadTasksData?()
+        if let id = presenter.deleteElement() {
+            deleteTask?(id)
+        }
         navigationController?.dismiss(animated: true)
     }
 }
