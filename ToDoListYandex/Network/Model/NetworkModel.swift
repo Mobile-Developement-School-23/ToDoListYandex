@@ -18,8 +18,12 @@ class NetworkModel {
     private let isDirtyKey = "isDirty"
     private let defaults = UserDefaults.standard
     
+    init() {
+        fileCache.loadAllTasksFromJSON(usingFileName: fileName)
+    }
+    
     func getTasks() -> [TodoItem] {
-        items != [] ? items : getLocalTasks()
+        isDirty() ? getLocalTasks() : items
     }
     
     func loadTasks(completion: (() -> Void)?) {
@@ -47,8 +51,8 @@ class NetworkModel {
                 _ = try await networkService.addTask(todoItem)
                 setDirty(false)
             } catch {
+                saveTaskLocaly(todoItem)
                 setDirty(true)
-                saveTasksLocaly([todoItem])
             }
             completion?()
         }
@@ -62,8 +66,8 @@ class NetworkModel {
                 _ = try await networkService.deleteTaskById(id)
                 setDirty(false)
             } catch {
-                setDirty(true)
                 deleteTaskLocaly(id: id)
+                setDirty(true)
             }
             completion?()
         }
@@ -77,8 +81,8 @@ class NetworkModel {
                 _ = try await networkService.updateTask(todoItem)
                 setDirty(false)
             } catch {
+                saveTaskLocaly(todoItem)
                 setDirty(true)
-                saveTasksLocaly([todoItem])
             }
             completion?()
         }
@@ -91,6 +95,7 @@ class NetworkModel {
                     items = tasks
                 }
                 setDirty(false)
+                deleteAllTasksLocaly()
             } catch {
                 setDirty(true)
             }
@@ -104,31 +109,6 @@ class NetworkModel {
         }
     }
     
-    private func saveTasksLocaly(_ tasks: [TodoItem]) {
-        fileCache.loadAllTasksFromJSON(usingFileName: fileName)
-        for task in tasks + items {
-            fileCache.addNewTask(task)
-        }
-        fileCache.saveTasksToJSON(usingFileName: fileName)
-    }
-    
-    private func deleteAllTasksLocaly() {
-        fileCache.loadAllTasksFromJSON(usingFileName: fileName)
-        fileCache.removeAllTasks()
-        fileCache.saveTasksToJSON(usingFileName: fileName)
-    }
-    
-    private func deleteTaskLocaly(id: String) {
-        fileCache.loadAllTasksFromJSON(usingFileName: fileName)
-        fileCache.removeTaskById(id)
-        fileCache.saveTasksToJSON(usingFileName: fileName)
-    }
-    
-    private func getLocalTasks() -> [TodoItem] {
-        fileCache.loadAllTasksFromJSON(usingFileName: fileName)
-        return fileCache.tasks
-    }
-    
     private func isDirty() -> Bool {
         defaults.bool(forKey: isDirtyKey)
     }
@@ -137,8 +117,43 @@ class NetworkModel {
         defaults.set(isDirty, forKey: isDirtyKey)
         if isDirty {
             saveTasksLocaly(items)
-        } else {
-            deleteAllTasksLocaly()
         }
+    }
+}
+
+
+extension NetworkModel {
+    private func getLocalTasks() -> [TodoItem] {
+        return fileCache.tasks
+    }
+    
+    private func saveTasksLocaly(_ tasks: [TodoItem]) {
+        for task in tasks + items {
+            saveTaskLocaly(task)
+        }
+    }
+    
+    private func saveTaskLocaly(_ task: TodoItem) {
+        fileCache.addNewTask(task)
+        saveToFile()
+    }
+    
+    private func deleteAllTasksLocaly() {
+        fileCache.removeAllTasks()
+        saveToFile()
+    }
+    
+    private func deleteTaskLocaly(id: String) {
+        fileCache.removeTaskById(id)
+        saveToFile()
+    }
+    
+    private func updateTaskLocaly(_ task: TodoItem) {
+        fileCache.addNewTask(task)
+        saveToFile()
+    }
+    
+    private func saveToFile() {
+        fileCache.saveTasksToJSON(usingFileName: fileName)
     }
 }
