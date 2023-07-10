@@ -36,12 +36,10 @@ extension TaskViewController: TaskViewControllerProtocol {
             taskTextView.resignFirstResponder()
         }
         recalculateTextViewHeight(taskTextView)
-        DDLogInfo("Task text updated to \(text)")
     }
     
     func updateTextColor(_ color: UIColor) {
         taskTextView.textColor = color
-        DDLogInfo("Task text color changed to \(color.getColorCode())")
     }
     
     func updateImportanceControl(_ segment: Int) {
@@ -56,7 +54,6 @@ extension TaskViewController: TaskViewControllerProtocol {
     
     func updateDeleteButton(setActive: Bool) {
         deleteButton.isEnabled = setActive
-        DDLogInfo(setActive ? "Delete button enabled" : "Delete button disabled")
     }
     
     func updateDoDueDateLabelValue(_ doDueDateString: String) {

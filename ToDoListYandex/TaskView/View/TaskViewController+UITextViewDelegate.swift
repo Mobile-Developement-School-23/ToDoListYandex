@@ -33,7 +33,5 @@ extension TaskViewController: UITextViewDelegate {
         } else {
             constraint?.constant = max(newSizeOfTextView.height + heightGap, 120)
         }
-        
-        DDLogInfo("Text view height was changed to \(max(newSizeOfTextView.height + heightGap, 120))")
     }
 }
