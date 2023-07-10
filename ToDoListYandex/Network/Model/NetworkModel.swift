@@ -44,7 +44,7 @@ class NetworkModel {
         
         Task {
             do {
-                try await networkService.addTask(todoItem)
+                _ = try await networkService.addTask(todoItem)
                 setDirty(false)
             } catch {
                 setDirty(true)
@@ -59,7 +59,7 @@ class NetworkModel {
         
         Task {
             do {
-                try await networkService.deleteTaskById(id)
+                _ = try await networkService.deleteTaskById(id)
                 setDirty(false)
             } catch {
                 setDirty(true)
@@ -74,7 +74,7 @@ class NetworkModel {
         
         Task {
             do {
-                try await networkService.updateTask(todoItem)
+                _ = try await networkService.updateTask(todoItem)
                 setDirty(false)
             } catch {
                 setDirty(true)
