@@ -2,7 +2,7 @@
 //  TasksListInfoViewCell.swift
 //  ToDoListYandex
 //
-//  Created by Анастасия Горячевская on 28.06.2023.
+//  Created by Anastasia Sharapenko on 28.06.2023.
 //
 
 import UIKit

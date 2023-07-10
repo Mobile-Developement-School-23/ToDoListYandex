@@ -2,7 +2,7 @@
 //  Protocols.swift
 //  ToDoListYandex
 //
-//  Created by Анастасия Горячевская on 05.07.2023.
+//  Created by Anastasia Sharapenko on 05.07.2023.
 //
 
 import Foundation

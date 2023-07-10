@@ -2,7 +2,7 @@
 //  TasksTableViewDataSource.swift
 //  ToDoListYandex
 //
-//  Created by Анастасия Горячевская on 26.06.2023.
+//  Created by Anastasia Sharapenko on 26.06.2023.
 //
 
 import UIKit

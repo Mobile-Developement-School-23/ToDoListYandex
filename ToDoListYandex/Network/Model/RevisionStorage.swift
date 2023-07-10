@@ -2,7 +2,7 @@
 //  RevisionStorage.swift
 //  ToDoListYandex
 //
-//  Created by Анастасия Горячевская on 07.07.2023.
+//  Created by Anastasia Sharapenko on 07.07.2023.
 //
 
 import Foundation

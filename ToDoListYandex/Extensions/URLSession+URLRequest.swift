@@ -2,7 +2,7 @@
 //  URLSession+URLRequest.swift
 //  ToDoListYandex
 //
-//  Created by Анастасия Горячевская on 04.07.2023.
+//  Created by Anastasia Sharapenko on 04.07.2023.
 //
 
 import Foundation

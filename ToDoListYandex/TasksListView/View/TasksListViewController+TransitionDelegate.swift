@@ -2,7 +2,7 @@
 //  TasksListViewController+TransitionDelegate.swift
 //  ToDoListYandex
 //
-//  Created by Анастасия Горячевская on 29.06.2023.
+//  Created by Anastasia Sharapenko on 29.06.2023.
 //
 
 import UIKit
