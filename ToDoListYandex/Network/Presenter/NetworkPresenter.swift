@@ -1,29 +1,25 @@
 //
-//  NetworkModel.swift
+//  NetworkPresenter.swift
 //  ToDoListYandex
 //
-//  Created by Anastasia Sharapenko on 07.07.2023.
+//  Created by Anastasia Sharapenko on 11.07.2023.
 //
 
 import Foundation
 
 
-class NetworkModel {
+class NetworkPresenter {
     private var items: [TodoItem] = []
     
     private let networkService: NetworkingService = DefaultNetworkingService()
     
-    private let fileCache = FileCache()
-    private let fileName = "dirtyData"
+    private let localCache = LocalCachePresenter()
+    
     private let isDirtyKey = "isDirty"
     private let defaults = UserDefaults.standard
     
-    init() {
-        fileCache.loadAllTasksFromJSON(usingFileName: fileName)
-    }
-    
     func getTasks() -> [TodoItem] {
-        isDirty() ? getLocalTasks() : items
+        isDirty() ? localCache.getLocalTasks() : items
     }
     
     func loadTasks(completion: (() -> Void)?) {
@@ -37,7 +33,7 @@ class NetworkModel {
                 setDirty(false)
             } catch {
                 setDirty(true)
-                items = getLocalTasks()
+                items = localCache.getLocalTasks()
             }
             completion?()
         }
@@ -51,7 +47,7 @@ class NetworkModel {
                 _ = try await networkService.addTask(todoItem)
                 setDirty(false)
             } catch {
-                saveTaskLocaly(todoItem)
+                localCache.saveTaskLocaly(todoItem)
                 setDirty(true)
             }
             completion?()
@@ -66,7 +62,7 @@ class NetworkModel {
                 _ = try await networkService.deleteTaskById(id)
                 setDirty(false)
             } catch {
-                deleteTaskLocaly(id: id)
+                localCache.deleteTaskLocaly(id: id)
                 setDirty(true)
             }
             completion?()
@@ -81,7 +77,7 @@ class NetworkModel {
                 _ = try await networkService.updateTask(todoItem)
                 setDirty(false)
             } catch {
-                saveTaskLocaly(todoItem)
+                localCache.saveTaskLocaly(todoItem)
                 setDirty(true)
             }
             completion?()
@@ -95,7 +91,7 @@ class NetworkModel {
                     items = tasks
                 }
                 setDirty(false)
-                deleteAllTasksLocaly()
+                localCache.deleteAllTasksLocaly()
             } catch {
                 setDirty(true)
             }
@@ -104,7 +100,7 @@ class NetworkModel {
     
     private func updateTasksOnServerIfDirty() {
         if isDirty() {
-            let tasks = getLocalTasks()
+            let tasks = localCache.getLocalTasks()
             replaceTasks(tasks)
         }
     }
@@ -116,44 +112,7 @@ class NetworkModel {
     private func setDirty(_ isDirty: Bool) {
         defaults.set(isDirty, forKey: isDirtyKey)
         if isDirty {
-            saveTasksLocaly(items)
+            localCache.saveTasksLocaly(items)
         }
-    }
-}
-
-
-extension NetworkModel {
-    private func getLocalTasks() -> [TodoItem] {
-        return fileCache.tasks
-    }
-    
-    private func saveTasksLocaly(_ tasks: [TodoItem]) {
-        for task in tasks + items {
-            saveTaskLocaly(task)
-        }
-    }
-    
-    private func saveTaskLocaly(_ task: TodoItem) {
-        fileCache.addNewTask(task)
-        saveToFile()
-    }
-    
-    private func deleteAllTasksLocaly() {
-        fileCache.removeAllTasks()
-        saveToFile()
-    }
-    
-    private func deleteTaskLocaly(id: String) {
-        fileCache.removeTaskById(id)
-        saveToFile()
-    }
-    
-    private func updateTaskLocaly(_ task: TodoItem) {
-        fileCache.addNewTask(task)
-        saveToFile()
-    }
-    
-    private func saveToFile() {
-        fileCache.saveTasksToJSON(usingFileName: fileName)
     }
 }

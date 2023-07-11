@@ -20,7 +20,7 @@ class TasksTableViewDataSource: NSObject {
     
     weak var view: TasksListViewController?
     
-    private let networkModel = NetworkModel()
+    private let networkModel = NetworkPresenter()
     
     var newTaskButtonTappedHandler: (() -> Void)?
     

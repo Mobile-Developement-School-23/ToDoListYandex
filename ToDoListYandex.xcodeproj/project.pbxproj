@@ -25,9 +25,10 @@
 		5D50614B2A5CADCA00E7AE43 /* ToDoItem+CSV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D50614A2A5CADCA00E7AE43 /* ToDoItem+CSV.swift */; };
 		5D50614D2A5CADF000E7AE43 /* ToDoItem+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D50614C2A5CADF000E7AE43 /* ToDoItem+JSON.swift */; };
 		5D50614F2A5CAE0C00E7AE43 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D50614E2A5CAE0C00E7AE43 /* Constants.swift */; };
+		5D5061532A5DA15A00E7AE43 /* NetworkPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5061522A5DA15A00E7AE43 /* NetworkPresenter.swift */; };
+		5D5061552A5DA1D400E7AE43 /* LocalCachePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5061542A5DA1D400E7AE43 /* LocalCachePresenter.swift */; };
 		5D8AFD2B2A589E740056CE22 /* ServerElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8AFD2A2A589E740056CE22 /* ServerElements.swift */; };
 		5D8AFD2D2A58A1800056CE22 /* RevisionStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8AFD2C2A58A1800056CE22 /* RevisionStorage.swift */; };
-		5D8AFD312A58A3FF0056CE22 /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8AFD302A58A3FF0056CE22 /* NetworkModel.swift */; };
 		5DCCF1052A460F9000A15BE8 /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCCF1042A460F9000A15BE8 /* ColorPickerView.swift */; };
 		5DCCF11D2A4A1C5C00A15BE8 /* TasksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCCF11C2A4A1C5C00A15BE8 /* TasksListViewController.swift */; };
 		5DCCF11F2A4A261A00A15BE8 /* TasksTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCCF11E2A4A261A00A15BE8 /* TasksTableViewDataSource.swift */; };
@@ -94,9 +95,10 @@
 		5D50614A2A5CADCA00E7AE43 /* ToDoItem+CSV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDoItem+CSV.swift"; sourceTree = "<group>"; };
 		5D50614C2A5CADF000E7AE43 /* ToDoItem+JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToDoItem+JSON.swift"; sourceTree = "<group>"; };
 		5D50614E2A5CAE0C00E7AE43 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5D5061522A5DA15A00E7AE43 /* NetworkPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkPresenter.swift; sourceTree = "<group>"; };
+		5D5061542A5DA1D400E7AE43 /* LocalCachePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCachePresenter.swift; sourceTree = "<group>"; };
 		5D8AFD2A2A589E740056CE22 /* ServerElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerElements.swift; sourceTree = "<group>"; };
 		5D8AFD2C2A58A1800056CE22 /* RevisionStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevisionStorage.swift; sourceTree = "<group>"; };
-		5D8AFD302A58A3FF0056CE22 /* NetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
 		5DCCF1042A460F9000A15BE8 /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
 		5DCCF11C2A4A1C5C00A15BE8 /* TasksListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListViewController.swift; sourceTree = "<group>"; };
 		5DCCF11E2A4A261A00A15BE8 /* TasksTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -172,9 +174,10 @@
 		5D3E0F532A55907600506692 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				5D3E0F592A58458700506692 /* Model */,
 				5D3E0F562A5590A000506692 /* Protocols */,
-				5D3E0F572A5590C400506692 /* DefaultNetworkingService.swift */,
+				5D5061512A5DA11200E7AE43 /* Service */,
+				5D5061502A5DA0E800E7AE43 /* Presenter */,
+				5D3E0F592A58458700506692 /* Model */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -193,7 +196,6 @@
 				5D3E0F5A2A5846B600506692 /* ServerToDoItem.swift */,
 				5D8AFD2A2A589E740056CE22 /* ServerElements.swift */,
 				5D8AFD2C2A58A1800056CE22 /* RevisionStorage.swift */,
-				5D8AFD302A58A3FF0056CE22 /* NetworkModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -211,11 +213,21 @@
 			path = FileCache;
 			sourceTree = "<group>";
 		};
-		5DCCF1032A45EC4400A15BE8 /* Resources */ = {
+		5D5061502A5DA0E800E7AE43 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				5D5061522A5DA15A00E7AE43 /* NetworkPresenter.swift */,
+				5D5061542A5DA1D400E7AE43 /* LocalCachePresenter.swift */,
 			);
-			path = Resources;
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		5D5061512A5DA11200E7AE43 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				5D3E0F572A5590C400506692 /* DefaultNetworkingService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		5DCCF1192A4A19F900A15BE8 /* TaskView */ = {
@@ -276,7 +288,6 @@
 			children = (
 				5D5061422A5CACDC00E7AE43 /* FileCache */,
 				5D3E0F532A55907600506692 /* Network */,
-				5DCCF1032A45EC4400A15BE8 /* Resources */,
 				856418FE2A45AEE1009F601C /* Extensions */,
 				5DCCF11B2A4A1B1A00A15BE8 /* TasksListView */,
 				5DCCF1192A4A19F900A15BE8 /* TaskView */,
@@ -563,9 +574,9 @@
 				5D0881D52A4F0B62008F8058 /* TaskViewController+UserInteractions.swift in Sources */,
 				5DCCF1312A4DFA5300A15BE8 /* TransitionAnimator.swift in Sources */,
 				856418FA2A459E2E009F601C /* TaskViewController+UICalendarSelectionSingleDateDelegate.swift in Sources */,
+				5D5061552A5DA1D400E7AE43 /* LocalCachePresenter.swift in Sources */,
 				856418F82A459D65009F601C /* TaskViewController+UITextViewDelegate.swift in Sources */,
 				5D3E0F5B2A5846B600506692 /* ServerToDoItem.swift in Sources */,
-				5D8AFD312A58A3FF0056CE22 /* NetworkModel.swift in Sources */,
 				5D3E0F4A2A5376CF00506692 /* TaskViewControllerProtocol.swift in Sources */,
 				5DCCF11D2A4A1C5C00A15BE8 /* TasksListViewController.swift in Sources */,
 				5D8AFD2B2A589E740056CE22 /* ServerElements.swift in Sources */,
@@ -574,6 +585,7 @@
 				850FCB132A385A890012EE52 /* SceneDelegate.swift in Sources */,
 				5D3E0F582A5590C400506692 /* DefaultNetworkingService.swift in Sources */,
 				5DCCF1052A460F9000A15BE8 /* ColorPickerView.swift in Sources */,
+				5D5061532A5DA15A00E7AE43 /* NetworkPresenter.swift in Sources */,
 				5D3E0F552A55909900506692 /* NetworkingService.swift in Sources */,
 				5D50614D2A5CADF000E7AE43 /* ToDoItem+JSON.swift in Sources */,
 				5D3E0F4F2A537C8E00506692 /* URLSession+URLRequest.swift in Sources */,
