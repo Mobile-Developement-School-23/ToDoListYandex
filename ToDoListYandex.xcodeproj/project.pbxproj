@@ -30,7 +30,9 @@
 		5D50615E2A5F4D8D00E7AE43 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 5D50615D2A5F4D8D00E7AE43 /* SQLite */; };
 		5D5061602A5F4DB100E7AE43 /* SQLiteHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D50615F2A5F4DB100E7AE43 /* SQLiteHelper.swift */; };
 		5D5061622A5F5A2000E7AE43 /* SQLColumns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5061612A5F5A2000E7AE43 /* SQLColumns.swift */; };
-		5D5061642A5F5ADF00E7AE43 /* SQLiteProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5061632A5F5ADF00E7AE43 /* SQLiteProtocol.swift */; };
+		5D5061642A5F5ADF00E7AE43 /* DBProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5061632A5F5ADF00E7AE43 /* DBProtocol.swift */; };
+		5D5061682A60410200E7AE43 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D5061662A60410200E7AE43 /* CoreDataModel.xcdatamodeld */; };
+		5D50616C2A6045C400E7AE43 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D50616B2A6045C400E7AE43 /* CoreDataHelper.swift */; };
 		5D8AFD2B2A589E740056CE22 /* ServerElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8AFD2A2A589E740056CE22 /* ServerElements.swift */; };
 		5D8AFD2D2A58A1800056CE22 /* RevisionStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8AFD2C2A58A1800056CE22 /* RevisionStorage.swift */; };
 		5DCCF1052A460F9000A15BE8 /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCCF1042A460F9000A15BE8 /* ColorPickerView.swift */; };
@@ -103,7 +105,9 @@
 		5D5061542A5DA1D400E7AE43 /* LocalCachePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCachePresenter.swift; sourceTree = "<group>"; };
 		5D50615F2A5F4DB100E7AE43 /* SQLiteHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteHelper.swift; sourceTree = "<group>"; };
 		5D5061612A5F5A2000E7AE43 /* SQLColumns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLColumns.swift; sourceTree = "<group>"; };
-		5D5061632A5F5ADF00E7AE43 /* SQLiteProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteProtocol.swift; sourceTree = "<group>"; };
+		5D5061632A5F5ADF00E7AE43 /* DBProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBProtocol.swift; sourceTree = "<group>"; };
+		5D5061672A60410200E7AE43 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		5D50616B2A6045C400E7AE43 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		5D8AFD2A2A589E740056CE22 /* ServerElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerElements.swift; sourceTree = "<group>"; };
 		5D8AFD2C2A58A1800056CE22 /* RevisionStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevisionStorage.swift; sourceTree = "<group>"; };
 		5DCCF1042A460F9000A15BE8 /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
@@ -243,9 +247,28 @@
 			children = (
 				5D50615F2A5F4DB100E7AE43 /* SQLiteHelper.swift */,
 				5D5061612A5F5A2000E7AE43 /* SQLColumns.swift */,
-				5D5061632A5F5ADF00E7AE43 /* SQLiteProtocol.swift */,
 			);
 			path = SQLite;
+			sourceTree = "<group>";
+		};
+		5D5061652A6040AC00E7AE43 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				5D5061662A60410200E7AE43 /* CoreDataModel.xcdatamodeld */,
+				5D50616B2A6045C400E7AE43 /* CoreDataHelper.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		5D50616D2A6045F400E7AE43 /* Databases */ = {
+			isa = PBXGroup;
+			children = (
+				5D5061632A5F5ADF00E7AE43 /* DBProtocol.swift */,
+				5D5061652A6040AC00E7AE43 /* CoreData */,
+				5D50615B2A5F4D0000E7AE43 /* SQLite */,
+				5D5061422A5CACDC00E7AE43 /* FileCache */,
+			);
+			path = Databases;
 			sourceTree = "<group>";
 		};
 		5DCCF1192A4A19F900A15BE8 /* TaskView */ = {
@@ -304,8 +327,7 @@
 		850FCB0F2A385A890012EE52 /* ToDoListYandex */ = {
 			isa = PBXGroup;
 			children = (
-				5D50615B2A5F4D0000E7AE43 /* SQLite */,
-				5D5061422A5CACDC00E7AE43 /* FileCache */,
+				5D50616D2A6045F400E7AE43 /* Databases */,
 				5D3E0F532A55907600506692 /* Network */,
 				856418FE2A45AEE1009F601C /* Extensions */,
 				5DCCF11B2A4A1B1A00A15BE8 /* TasksListView */,
@@ -609,12 +631,14 @@
 				5DCCF1052A460F9000A15BE8 /* ColorPickerView.swift in Sources */,
 				5D5061532A5DA15A00E7AE43 /* NetworkPresenter.swift in Sources */,
 				5D3E0F552A55909900506692 /* NetworkingService.swift in Sources */,
-				5D5061642A5F5ADF00E7AE43 /* SQLiteProtocol.swift in Sources */,
+				5D5061642A5F5ADF00E7AE43 /* DBProtocol.swift in Sources */,
 				5D50614D2A5CADF000E7AE43 /* ToDoItem+JSON.swift in Sources */,
 				5D3E0F4F2A537C8E00506692 /* URLSession+URLRequest.swift in Sources */,
 				856419002A45AF05009F601C /* UIColor+Extension.swift in Sources */,
+				5D5061682A60410200E7AE43 /* CoreDataModel.xcdatamodeld in Sources */,
 				5DCCF1212A4AF92900A15BE8 /* TaskTableViewCell.swift in Sources */,
 				5DCCF1332A4DFABC00A15BE8 /* TasksListViewController+TransitionDelegate.swift in Sources */,
+				5D50616C2A6045C400E7AE43 /* CoreDataHelper.swift in Sources */,
 				5D5061462A5CAD8500E7AE43 /* FileCache+CSV.swift in Sources */,
 				5D5061622A5F5A2000E7AE43 /* SQLColumns.swift in Sources */,
 				5D50614B2A5CADCA00E7AE43 /* ToDoItem+CSV.swift in Sources */,
@@ -956,6 +980,19 @@
 			productName = CocoaLumberjackSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		5D5061662A60410200E7AE43 /* CoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5D5061672A60410200E7AE43 /* CoreDataModel.xcdatamodel */,
+			);
+			currentVersion = 5D5061672A60410200E7AE43 /* CoreDataModel.xcdatamodel */;
+			path = CoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 850FCB052A385A890012EE52 /* Project object */;
 }
