@@ -10,7 +10,7 @@ import CocoaLumberjackSwift
 import SQLite
 
 
-class SQLiteHelper: SQLiteProtocol {
+class SQLiteHelper: DBProtocol {
     private let fileName = "myTasksSQLite.sqlite3"
     
     private var db: Connection?
@@ -82,6 +82,7 @@ class SQLiteHelper: SQLiteProtocol {
     
     
     func saveTask(_ todoItem: TodoItem) {
+        deleteTaskById(todoItem.id)
         do {
             try db?.run(tasksTable.insert(Columns.id <- todoItem.id,
                                           Columns.text <- todoItem.text,

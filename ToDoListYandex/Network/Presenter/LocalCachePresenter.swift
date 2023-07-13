@@ -9,35 +9,37 @@ import Foundation
 
 class LocalCachePresenter {
     
-    private let sqliteDatabase: SQLiteProtocol = SQLiteHelper()
+    private let db: DBProtocol = CoreDataHelper()
+//    private let db: DBProtocol = SQLiteHelper()
     
     init() {
-        sqliteDatabase.loadTasksFromDB()
+        db.loadTasksFromDB()
     }
     
     func getLocalTasks() -> [TodoItem] {
-        sqliteDatabase.getTasks()
+        db.getTasks()
     }
     
     func saveTasksLocaly(_ tasks: [TodoItem]) {
+        db.deleteAllTasks()
         for task in tasks {
             saveTaskLocaly(task)
         }
     }
     
     func saveTaskLocaly(_ task: TodoItem) {
-        sqliteDatabase.saveTask(task)
+        db.saveTask(task)
     }
     
     func deleteAllTasksLocaly() {
-        sqliteDatabase.deleteAllTasks()
+        db.deleteAllTasks()
     }
     
     func deleteTaskLocaly(id: String) {
-        sqliteDatabase.deleteTaskById(id)
+        db.deleteTaskById(id)
     }
     
     func updateTaskLocaly(_ task: TodoItem) {
-        sqliteDatabase.updateTask(task)
+        db.updateTask(task)
     }
 }

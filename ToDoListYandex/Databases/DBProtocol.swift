@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol SQLiteProtocol {
+protocol DBProtocol {
     
     func getTasks() -> [TodoItem]
     

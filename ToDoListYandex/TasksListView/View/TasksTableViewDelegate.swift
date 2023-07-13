@@ -49,7 +49,6 @@ extension TasksTableViewDelegate: UITableViewDelegate {
         
         let deleteAction = UIContextualAction(style: .destructive, title: nil) { (_, _, completion) in
             _ = dataSource.removeTask(at: indexPath.row - 1)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
             completion(true)
         }
         deleteAction.image = UIImage(systemName: "trash.fill")

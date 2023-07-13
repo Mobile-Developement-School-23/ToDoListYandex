@@ -123,9 +123,9 @@ class NetworkPresenter {
     }
     
     private func setDirty(_ isDirty: Bool) {
-        defaults.set(isDirty, forKey: isDirtyKey)
-        if isDirty {
+        if self.isDirty() != isDirty && isDirty {
             localCache.saveTasksLocaly(items)
         }
+        defaults.set(isDirty, forKey: isDirtyKey)
     }
 }
