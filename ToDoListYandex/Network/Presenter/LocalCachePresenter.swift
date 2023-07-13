@@ -9,15 +9,14 @@ import Foundation
 
 class LocalCachePresenter {
     
-    private let fileCache = FileCache()
-    private let fileName = "dirtyData"
+    private let sqliteDatabase: SQLiteProtocol = SQLiteHelper()
     
     init() {
-        fileCache.loadAllTasksFromJSON(usingFileName: fileName)
+        sqliteDatabase.loadTasksFromDB()
     }
     
     func getLocalTasks() -> [TodoItem] {
-        return fileCache.tasks
+        sqliteDatabase.getTasks()
     }
     
     func saveTasksLocaly(_ tasks: [TodoItem]) {
@@ -27,26 +26,18 @@ class LocalCachePresenter {
     }
     
     func saveTaskLocaly(_ task: TodoItem) {
-        fileCache.addNewTask(task)
-        saveToFile()
+        sqliteDatabase.saveTask(task)
     }
     
     func deleteAllTasksLocaly() {
-        fileCache.removeAllTasks()
-        saveToFile()
+        sqliteDatabase.deleteAllTasks()
     }
     
     func deleteTaskLocaly(id: String) {
-        fileCache.removeTaskById(id)
-        saveToFile()
+        sqliteDatabase.deleteTaskById(id)
     }
     
     func updateTaskLocaly(_ task: TodoItem) {
-        fileCache.addNewTask(task)
-        saveToFile()
-    }
-    
-    func saveToFile() {
-        fileCache.saveTasksToJSON(usingFileName: fileName)
+        sqliteDatabase.updateTask(task)
     }
 }

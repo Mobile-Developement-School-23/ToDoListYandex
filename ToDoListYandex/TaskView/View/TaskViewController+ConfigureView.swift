@@ -50,7 +50,7 @@ extension TaskViewController {
         if let keyboardSize = (sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             view.frame.size.height += keyboardSize.height
         }
-        DDLogInfo("Keyboard was hided")
+        DDLogInfo("Keyboard was hidden")
     }
     
     func configureNavBar() {
