@@ -9,7 +9,14 @@ import Foundation
 
 
 class NetworkPresenter {
-    private var items: [TodoItem] = []
+    
+    var itemsChanged: (() -> Void)?
+    
+    private var items: [TodoItem] = [] {
+        didSet {
+            itemsChanged?()
+        }
+    }
     
     private let networkService: NetworkingService = DefaultNetworkingService()
     
@@ -41,6 +48,9 @@ class NetworkPresenter {
     
     func addTask(_ todoItem: TodoItem, completion: (() -> Void)?) {
         updateTasksOnServerIfDirty()
+        items.append(todoItem)
+        
+        completion?()
         
         Task {
             do {
@@ -56,6 +66,7 @@ class NetworkPresenter {
     
     func deleteTask(id: String, completion: (() -> Void)?) {
         updateTasksOnServerIfDirty()
+        items.removeAll(where: { $0.id == id })
         
         Task {
             do {
@@ -71,6 +82,8 @@ class NetworkPresenter {
     
     func updateTask(_ todoItem: TodoItem, completion: (() -> Void)?) {
         updateTasksOnServerIfDirty()
+        items.removeAll(where: { $0.id == todoItem.id })
+        items.append(todoItem)
         
         Task {
             do {

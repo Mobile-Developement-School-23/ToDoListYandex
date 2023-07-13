@@ -27,14 +27,22 @@ class TasksTableViewDataSource: NSObject {
     override init() {
         super.init()
         loadTasks()
+        
+        networkModel.itemsChanged = { [weak self] in
+            self?.reloadData()
+        }
     }
     
     func loadTasks() {
-        networkModel.loadTasks {
-            self.tasks = self.networkModel.getTasks().sorted(by: { $0.creationDate > $1.creationDate })
-            DispatchQueue.main.async {
-                self.view?.tasksTableView.reloadData()
-            }
+        networkModel.loadTasks { [weak self] in
+            self?.reloadData()
+        }
+    }
+    
+    private func reloadData() {
+        self.tasks = self.networkModel.getTasks().sorted(by: { $0.creationDate > $1.creationDate })
+        DispatchQueue.main.async {
+            self.view?.tasksTableView.reloadData()
         }
     }
     

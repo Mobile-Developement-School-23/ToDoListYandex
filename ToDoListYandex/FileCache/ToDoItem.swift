@@ -9,7 +9,20 @@ import Foundation
 
 public struct TodoItem: Equatable {
     public enum TaskImportance: String {
-        case unimportant, usual, important
+        case unimportant
+        case usual
+        case important
+        
+        static func getTaskImportanceFromString(_ importance: String) -> TaskImportance {
+            switch importance {
+            case "unimportant":
+                return .unimportant
+            case "important":
+                return .important
+            default:
+                return .usual
+            }
+        }
     }
     
     public let id: String
