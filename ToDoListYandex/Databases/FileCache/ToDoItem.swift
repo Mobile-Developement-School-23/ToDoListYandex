@@ -7,7 +7,7 @@
 import Foundation
 
 
-public struct TodoItem: Equatable {
+public struct TodoItem: Equatable, Identifiable {
     public enum TaskImportance: String {
         case unimportant
         case usual
