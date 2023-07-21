@@ -33,8 +33,14 @@
 		5D5061642A5F5ADF00E7AE43 /* DBProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5061632A5F5ADF00E7AE43 /* DBProtocol.swift */; };
 		5D5061682A60410200E7AE43 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D5061662A60410200E7AE43 /* CoreDataModel.xcdatamodeld */; };
 		5D50616C2A6045C400E7AE43 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D50616B2A6045C400E7AE43 /* CoreDataHelper.swift */; };
+		5D552FDE2A696C0C00054F1C /* SUITasksListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D552FDD2A696C0C00054F1C /* SUITasksListView.swift */; };
 		5D8AFD2B2A589E740056CE22 /* ServerElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8AFD2A2A589E740056CE22 /* ServerElements.swift */; };
 		5D8AFD2D2A58A1800056CE22 /* RevisionStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8AFD2C2A58A1800056CE22 /* RevisionStorage.swift */; };
+		5DB7DEA32A6993F100C6A2A3 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB7DEA22A6993F100C6A2A3 /* Font+Extension.swift */; };
+		5DB7DEA62A6998F500C6A2A3 /* HeaderInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB7DEA52A6998F500C6A2A3 /* HeaderInfoCell.swift */; };
+		5DB7DEA82A69992B00C6A2A3 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB7DEA72A69992B00C6A2A3 /* TaskCell.swift */; };
+		5DB7DEAA2A69994B00C6A2A3 /* TasksListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB7DEA92A69994B00C6A2A3 /* TasksListView.swift */; };
+		5DB7DEAC2A6AD03D00C6A2A3 /* NewTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DB7DEAB2A6AD03D00C6A2A3 /* NewTaskCell.swift */; };
 		5DCCF1052A460F9000A15BE8 /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCCF1042A460F9000A15BE8 /* ColorPickerView.swift */; };
 		5DCCF11D2A4A1C5C00A15BE8 /* TasksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCCF11C2A4A1C5C00A15BE8 /* TasksListViewController.swift */; };
 		5DCCF11F2A4A261A00A15BE8 /* TasksTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCCF11E2A4A261A00A15BE8 /* TasksTableViewDataSource.swift */; };
@@ -108,8 +114,14 @@
 		5D5061632A5F5ADF00E7AE43 /* DBProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBProtocol.swift; sourceTree = "<group>"; };
 		5D5061672A60410200E7AE43 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		5D50616B2A6045C400E7AE43 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		5D552FDD2A696C0C00054F1C /* SUITasksListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SUITasksListView.swift; sourceTree = "<group>"; };
 		5D8AFD2A2A589E740056CE22 /* ServerElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerElements.swift; sourceTree = "<group>"; };
 		5D8AFD2C2A58A1800056CE22 /* RevisionStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevisionStorage.swift; sourceTree = "<group>"; };
+		5DB7DEA22A6993F100C6A2A3 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
+		5DB7DEA52A6998F500C6A2A3 /* HeaderInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderInfoCell.swift; sourceTree = "<group>"; };
+		5DB7DEA72A69992B00C6A2A3 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		5DB7DEA92A69994B00C6A2A3 /* TasksListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListView.swift; sourceTree = "<group>"; };
+		5DB7DEAB2A6AD03D00C6A2A3 /* NewTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskCell.swift; sourceTree = "<group>"; };
 		5DCCF1042A460F9000A15BE8 /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
 		5DCCF11C2A4A1C5C00A15BE8 /* TasksListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListViewController.swift; sourceTree = "<group>"; };
 		5DCCF11E2A4A261A00A15BE8 /* TasksTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewDataSource.swift; sourceTree = "<group>"; };
@@ -271,6 +283,35 @@
 			path = Databases;
 			sourceTree = "<group>";
 		};
+		5D552FDA2A696BC400054F1C /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				5DB7DEA42A6998DC00C6A2A3 /* View */,
+				5DB7DEA12A6993D600C6A2A3 /* Extensions */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		5DB7DEA12A6993D600C6A2A3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5DB7DEA22A6993F100C6A2A3 /* Font+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5DB7DEA42A6998DC00C6A2A3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5D552FDD2A696C0C00054F1C /* SUITasksListView.swift */,
+				5DB7DEA52A6998F500C6A2A3 /* HeaderInfoCell.swift */,
+				5DB7DEA72A69992B00C6A2A3 /* TaskCell.swift */,
+				5DB7DEA92A69994B00C6A2A3 /* TasksListView.swift */,
+				5DB7DEAB2A6AD03D00C6A2A3 /* NewTaskCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		5DCCF1192A4A19F900A15BE8 /* TaskView */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,6 +325,7 @@
 		5DCCF11B2A4A1B1A00A15BE8 /* TasksListView */ = {
 			isa = PBXGroup;
 			children = (
+				5D552FDA2A696BC400054F1C /* SwiftUI */,
 				5DCCF1222A4B0C3E00A15BE8 /* View */,
 			);
 			path = TasksListView;
@@ -616,6 +658,7 @@
 				5D0881D32A4F0965008F8058 /* TaskViewController+ConfigureView.swift in Sources */,
 				5D0881D52A4F0B62008F8058 /* TaskViewController+UserInteractions.swift in Sources */,
 				5DCCF1312A4DFA5300A15BE8 /* TransitionAnimator.swift in Sources */,
+				5DB7DEAC2A6AD03D00C6A2A3 /* NewTaskCell.swift in Sources */,
 				856418FA2A459E2E009F601C /* TaskViewController+UICalendarSelectionSingleDateDelegate.swift in Sources */,
 				5D5061602A5F4DB100E7AE43 /* SQLiteHelper.swift in Sources */,
 				5D5061552A5DA1D400E7AE43 /* LocalCachePresenter.swift in Sources */,
@@ -636,19 +679,24 @@
 				5D3E0F4F2A537C8E00506692 /* URLSession+URLRequest.swift in Sources */,
 				856419002A45AF05009F601C /* UIColor+Extension.swift in Sources */,
 				5D5061682A60410200E7AE43 /* CoreDataModel.xcdatamodeld in Sources */,
+				5DB7DEAA2A69994B00C6A2A3 /* TasksListView.swift in Sources */,
 				5DCCF1212A4AF92900A15BE8 /* TaskTableViewCell.swift in Sources */,
 				5DCCF1332A4DFABC00A15BE8 /* TasksListViewController+TransitionDelegate.swift in Sources */,
 				5D50616C2A6045C400E7AE43 /* CoreDataHelper.swift in Sources */,
 				5D5061462A5CAD8500E7AE43 /* FileCache+CSV.swift in Sources */,
 				5D5061622A5F5A2000E7AE43 /* SQLColumns.swift in Sources */,
+				5DB7DEA32A6993F100C6A2A3 /* Font+Extension.swift in Sources */,
 				5D50614B2A5CADCA00E7AE43 /* ToDoItem+CSV.swift in Sources */,
+				5DB7DEA82A69992B00C6A2A3 /* TaskCell.swift in Sources */,
 				5D0881D12A4F0838008F8058 /* TaskViewController+ToDoListViewControllerProtocol.swift in Sources */,
 				5DCCF11F2A4A261A00A15BE8 /* TasksTableViewDataSource.swift in Sources */,
 				5D5061442A5CAD5A00E7AE43 /* FileCache.swift in Sources */,
 				5DCCF12D2A4CD7C400A15BE8 /* NewTaskTableViewCell.swift in Sources */,
 				5DCCF1352A4E452B00A15BE8 /* TaskViewController+ScreenOrientation.swift in Sources */,
 				5D3E0F4C2A53789300506692 /* Date+DateFormatter.swift in Sources */,
+				5D552FDE2A696C0C00054F1C /* SUITasksListView.swift in Sources */,
 				5DCCF12B2A4CC69F00A15BE8 /* TasksListInfoViewCell.swift in Sources */,
+				5DB7DEA62A6998F500C6A2A3 /* HeaderInfoCell.swift in Sources */,
 				854B5E8D2A3FA793002AC531 /* TaskViewController.swift in Sources */,
 				5DCCF12F2A4CED6800A15BE8 /* TasksTableViewDelegate.swift in Sources */,
 				8564190D2A45D4EA009F601C /* UIFont+Extension.swift in Sources */,
